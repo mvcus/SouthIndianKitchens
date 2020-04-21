@@ -3,31 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-//import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { Home1Component } from './home1/home1.component';
-import { UploadComponent} from './Upload/Upload.component';
-
-
-
-
+import { UploadComponent } from './Upload/Upload.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { AdminComponent } from './admin/admin.component';
+import { ListsComponent } from './lists/lists.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
 
 @NgModule({
    declarations: [
-      AppComponent,
+    AppComponent,
     HomeComponent,
-     Home1Component,
     RegisterComponent,
     UploadComponent,
-    
-   
+    NavMenuComponent,
+    AdminComponent,
+    ListsComponent,
    ],
    imports: [
-      BrowserModule,
-      HttpClientModule,
-      FormsModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+     RouterModule.forRoot(appRoutes),
    ],
    providers: [
       AuthService

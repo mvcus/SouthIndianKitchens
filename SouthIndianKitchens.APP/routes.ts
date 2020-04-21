@@ -1,10 +1,10 @@
-import { Home1Component } from './ClientApp/src/app/home1/home1.component';
+import { HomeComponent } from './ClientApp/src/app/home/home.component';
 import { AuthGuard } from './_gaurds/auth.guard';
 import { AdminComponent } from './ClientApp/src/app/admin/admin.component';
 import { Routes } from './ClientApp/node_modules/@angular/router';
 
 export const appRoutes: Routes = [
-    {path: '' , component: Home1Component},
+    {path: '' , component: HomeComponent},
     {
 
         // Adding to protect the route
@@ -13,7 +13,7 @@ export const appRoutes: Routes = [
         canActivate: [AuthGuard],
         children :
         [
-                { path: 'home1', component: Home1Component, },
+                { path: 'home1', component: HomeComponent, },
                 { path: 'Admin', component: AdminComponent},
         ]
     },

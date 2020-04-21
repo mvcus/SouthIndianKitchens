@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
 
 baseUrl = '/api/auth/';
 
-constructor( private http: HttpClient) {   }
+  constructor(private http: HttpClient) {   }
 
 login(model: any) {
 
@@ -27,4 +28,13 @@ login(model: any) {
 register(model: any){
   return this.http.post(this.baseUrl + 'register', model);
 }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+  logout() {
+    localStorage.removeItem('token');
+    console.log('logged out');
+  }
 }

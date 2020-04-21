@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,28 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  values: any;
-  registerMode = false;
-  constructor(private http: HttpClient) { }
+  model: any = {};
+  constructor(private authservice: AuthService) { }
 
   ngOnInit() {
-
-}
-  registerToggled(){
-
-    this.registerMode = true;
-
   }
-  // getValues(){//this.getValues();
-  //   this.http.get('http://localhost:5000/api/values').subscribe(response => {
-  //   this.values = response;
-  //   }, error => {
-  //     console.log(error);
-  //   });
-  // }
-  cancelRegisterMode(registerMode: boolean)
-  {
-    this.registerMode = registerMode;
+  login() {
+    this.authservice.login(this.model).subscribe(next => {
+      console.log('logged in Successfully');
+    }, error => {
+      console.log('Failed to login');
+    }
+    );
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log('logged out');
   }
 }

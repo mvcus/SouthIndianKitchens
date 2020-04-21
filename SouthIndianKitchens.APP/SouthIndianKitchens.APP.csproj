@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -31,17 +31,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\routes.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\user.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
+    <None Remove="routes.ts" />
+    <None Remove="styles\et-core-unified-13-15864520477412.min.css" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\routes.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\user.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ClientApp\src\assets\" />
+    <Folder Include="styles\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { AuthService } from './../_services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,13 +8,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
-  isExpanded = false;
+  model: any = {};
+  constructor(private authservice: AuthService, private route: Router) { }
 
-  collapse() {
-    this.isExpanded = false;
+  ngOnInit() {
+  }
+  login() {
+    this.authservice.login(this.model).subscribe(next => {
+      console.log('logged in Successfully');
+    }, error => {
+      console.log('Failed to login');
+    }, () => {
+      this.route.navigate(['\admin']);
+    }
+    );
   }
 
-  toggle() {
-    this.isExpanded = !this.isExpanded;
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log('logged out');
+    this.route.navigate(['\logout']);
   }
 }

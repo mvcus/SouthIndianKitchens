@@ -1,18 +1,29 @@
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+
+.bg-dark {
+  background-color: #d6d6d6 !important;
 }
 
-html {
-  font-size: 14px;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 35px;
+  padding: .1rem .2rem;
 }
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
+
+  .nav-item active, .navbar navbar-expand-md navbar-dark bg-dark, fa fa-envelope, .fa fa-phone {
+    color: #6b6b6b;
+    text-decoration: none;
+    background-color: transparent;
   }
-}
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+a {
+  color: #6b6b6b;
+  text-decoration: none;
+  background-color: transparent;
+}
+#top-header, #top-header a {
+  color: #6b6b6b;
 }
