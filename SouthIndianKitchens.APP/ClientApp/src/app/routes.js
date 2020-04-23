@@ -5,7 +5,6 @@ var admin_component_1 = require("./admin/admin.component");
 var lists_component_1 = require("./lists/lists.component");
 var auth_guard_1 = require("./_gaurds/auth.guard");
 exports.appRoutes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '', component: home_component_1.HomeComponent },
     {
         // Adding to protect the route

@@ -18,5 +18,10 @@ namespace SouthIndianKitchens.API.Model
             public string Address { get; set; }
 
             public string ImgPath { get; set; }
+
+        public static implicit operator UploadImage(List<UploadImage> v)
+        {
+            throw new NotImplementedException();
         }
+    }
 }

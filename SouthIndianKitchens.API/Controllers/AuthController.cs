@@ -61,7 +61,8 @@ namespace SouthIndianKitchens.API.Controllers
             }
         }
 
-        [HttpPost("SavePath")]
+        [HttpPost]
+        [Route("SavePath")]
         public async Task<IActionResult> SavePath(ImageUploadDto ImageUploadDto)
         {
             //if(!ModelState.IsValid)
@@ -79,6 +80,13 @@ namespace SouthIndianKitchens.API.Controllers
             };
             var createdImage = await _repo.AddImage(userToCreate, ImageUploadDto.Name, ImageUploadDto.Address, ImageUploadDto.ImagePath);
             return StatusCode(201);
+        }
+        [HttpGet]
+        [Route("getImages")]
+        public async Task<IActionResult> GetImage()
+        {
+            var values = await _repo.getImages();
+            return Ok(values);
         }
         //[HttpPost]
         //public IActionResult CreateUser([FromBody]User user)

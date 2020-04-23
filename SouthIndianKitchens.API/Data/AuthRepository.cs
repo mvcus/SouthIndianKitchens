@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using SouthIndianKitchens.API.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace SouthIndianKitchens.API.Data
 {
@@ -85,6 +86,12 @@ namespace SouthIndianKitchens.API.Data
         public Task Login(object username, string password)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<UploadImage>> getImages()
+        {
+            var UploadImage = await _context.UploadImage.ToListAsync();
+            return UploadImage;
         }
     }
 }

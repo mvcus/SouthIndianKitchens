@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using SouthIndianKitchens.API.Model;
 
@@ -13,5 +14,7 @@ namespace SouthIndianKitchens.API.Data
         Task<Users> Login(string username, string password);
         Task<bool> UserExist(string username);
         Task Login(object username, string password);
+
+        Task<System.Collections.Generic.IEnumerable<UploadImage>> getImages();
     }
 }

@@ -37,4 +37,8 @@ register(model: any){
     localStorage.removeItem('token');
     console.log('logged out');
   }
+
+  getImages() {
+    return this.http.get(this.baseUrl + 'getImages');
+  }
 }
