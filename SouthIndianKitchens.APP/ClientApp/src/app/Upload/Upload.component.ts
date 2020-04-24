@@ -3,6 +3,7 @@ import { User } from '../_Interfaces/user.model';
 
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpEventType, HttpClient } from '@angular/common/http';
+import { AuthService } from '../_services/auth.service';
 
 
 @Component({
@@ -15,9 +16,10 @@ export class UploadComponent implements OnInit {
   public message: string;
   @Output() public onUploadFinished = new EventEmitter();
 
-  public isCreate: boolean;
+  public isCreate: boolean ;
   public name: string;
   public address: string;
+  public imgPath: string;
   public user: userToCreate;
   public users: User[] = [];
 
@@ -26,9 +28,9 @@ export class UploadComponent implements OnInit {
     this.response = event;
   }
   public createImgPath = (serverPath: string) => {
-    return 'http://localhost:15050/${serverPath}';
+    return this.authservice.baseUrl+'/${serverPath}';
   }
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authservice: AuthService) { }
 
   ngOnInit() {
   }
@@ -42,7 +44,7 @@ export class UploadComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
 
-    this.http.post('http://localhost:15050/api/auth/Upload', formData, { reportProgress: true, observe: 'events' })
+    this.http.post(this.authservice.baseUrl + 'Upload', formData, { reportProgress: true, observe: 'events' })
       .subscribe(event => {
         if (event.type === HttpEventType.UploadProgress)
           this.progress = Math.round(100 * event.loaded / event.total);
@@ -50,23 +52,31 @@ export class UploadComponent implements OnInit {
           this.message = 'Upload success.';
           this.onUploadFinished.emit(event.body);
         }
+        this.imgPath = "Resources/Imgages/" + fileToUpload.name;
       });
   }
   public onCreate = () => {
     this.user = {
       name: this.name,
       address: this.address,
-      imgPath: ''//this.response.dbPath
+      imgPath: this.imgPath, //this.response.dbPath
     }
 
-    this.http.post('http://localhost:15050/api/auth/Upload', this.user)
+    this.http.post(this.authservice.baseUrl + 'SavePath', this.user )
       .subscribe(res => {
-        //this.getUsers();
+        this.getImages();
         this.isCreate = false;
+
       });
   }
-  private getUsers = () => {
-    this.http.get('http://localhost:15050/api/users')
+  //private getUsers = () => {
+  //  this.http.get(this.authservice.baseUrl +'users')
+  //    .subscribe(res => {
+  //      this.users = res as User[];
+  //    });
+  //}
+  private getImages = () => {
+    this.http.get(this.authservice.baseUrl + 'getImages')
       .subscribe(res => {
         this.users = res as User[];
       });

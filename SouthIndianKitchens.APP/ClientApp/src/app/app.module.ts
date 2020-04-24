@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 import { UploadComponent } from './Upload/Upload.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { AdminComponent } from './admin/admin.component';
@@ -17,7 +17,7 @@ import { appRoutes } from './routes';
    declarations: [
     AppComponent,
     HomeComponent,
-    RegisterComponent,
+    LoginComponent,
     UploadComponent,
     NavMenuComponent,
     AdminComponent,

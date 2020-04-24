@@ -29,6 +29,7 @@ namespace SouthIndianKitchens.API.Controllers
         }
 
         [HttpPost, DisableRequestSizeLimit]
+        [Route("upload")]
         public IActionResult Upload()
         {
             try
@@ -67,10 +68,9 @@ namespace SouthIndianKitchens.API.Controllers
         {
             //if(!ModelState.IsValid)
             // return BadRequest(ModelState);
-            ImageUploadDto.Address = ImageUploadDto.Address.ToLower();
+            ImageUploadDto.Address = Convert.ToString(ImageUploadDto.Address.Split("@")[0].ToLower());
             ImageUploadDto.Name = ImageUploadDto.Name.ToLower();
-            ImageUploadDto.ImagePath = ImageUploadDto.ImagePath.ToLower();
-
+            ImageUploadDto.ImagePath = Convert.ToString(ImageUploadDto.Address.Split("@")[1].ToLower()); ;
 
             //if (await _repo.UserExist(userForRegistrationDto.Username))
             //    return BadRequest("User already Exist");
