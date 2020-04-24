@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { userToCreate } from '../_Interfaces/userToCreate.model';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

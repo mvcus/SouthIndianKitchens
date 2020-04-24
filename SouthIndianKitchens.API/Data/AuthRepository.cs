@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using SouthIndianKitchens.API.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SouthIndianKitchens.API.Data
 {
@@ -90,6 +91,13 @@ namespace SouthIndianKitchens.API.Data
 
         public async Task<IEnumerable<UploadImage>> getImages()
         {
+            //var UploadImage = await _context.UploadImage.Select(s => new
+            //{
+            //    s.Name,
+            //    s.Address,
+            //    s.ImgPath,
+            //}).ToListAsync();
+            //return UploadImage;
             var UploadImage = await _context.UploadImage.ToListAsync();
             return UploadImage;
         }
