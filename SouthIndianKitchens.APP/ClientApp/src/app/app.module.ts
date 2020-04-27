@@ -12,6 +12,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ListsComponent } from './lists/lists.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
    declarations: [
@@ -22,6 +23,7 @@ import { appRoutes } from './routes';
     NavMenuComponent,
     AdminComponent,
     ListsComponent,
+    RegisterComponent
    ],
    imports: [
     BrowserModule,

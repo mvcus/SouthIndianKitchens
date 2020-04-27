@@ -5,6 +5,7 @@ var admin_component_1 = require("./admin/admin.component");
 var lists_component_1 = require("./lists/lists.component");
 var auth_guard_1 = require("./_gaurds/auth.guard");
 var login_component_1 = require("./login/login.component");
+var register_component_1 = require("./register/register.component");
 exports.appRoutes = [
     { path: '', component: home_component_1.HomeComponent },
     {
@@ -16,6 +17,7 @@ exports.appRoutes = [
             { path: 'admin', component: admin_component_1.AdminComponent, canActivate: [auth_guard_1.AuthGuard], },
             { path: 'lists', component: lists_component_1.ListsComponent, canActivate: [auth_guard_1.AuthGuard], },
             { path: 'login', component: login_component_1.LoginComponent },
+            { path: 'register', component: register_component_1.RegisterComponent },
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }
