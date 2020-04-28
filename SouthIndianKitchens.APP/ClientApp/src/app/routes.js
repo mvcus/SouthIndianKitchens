@@ -6,6 +6,7 @@ var lists_component_1 = require("./lists/lists.component");
 var auth_guard_1 = require("./_gaurds/auth.guard");
 var login_component_1 = require("./login/login.component");
 var register_component_1 = require("./register/register.component");
+var episode_component_1 = require("./episode/episode.component");
 exports.appRoutes = [
     { path: '', component: home_component_1.HomeComponent },
     {
@@ -18,6 +19,7 @@ exports.appRoutes = [
             { path: 'lists', component: lists_component_1.ListsComponent, canActivate: [auth_guard_1.AuthGuard], },
             { path: 'login', component: login_component_1.LoginComponent },
             { path: 'register', component: register_component_1.RegisterComponent },
+            { path: 'episode', component: episode_component_1.EpisodeComponent },
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

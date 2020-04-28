@@ -1,0 +1,16 @@
+
+<br />
+<div>    
+  <div class="row color">    
+    <div class="col-sm-12 btn">    
+      Episodes Gallery    
+    </div>    
+  </div>    
+  <div class="row Episode">    
+    <ul>    
+      <li *ngFor="let video of (allVideos); trackBy: trackByFn;">    
+        <iframe width="350" height="300" class="iframe" [src]="video.embedUrl + video.id | safeUrl" frameborder="0" allowfullscreen> </iframe>
+      </li>    
+    </ul>    
+  </div>    
+</div>    

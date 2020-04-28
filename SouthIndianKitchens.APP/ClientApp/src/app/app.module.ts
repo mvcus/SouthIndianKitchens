@@ -13,6 +13,8 @@ import { ListsComponent } from './lists/lists.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { RegisterComponent } from './register/register.component';
+import { EpisodeComponent } from './episode/episode.component';
+import { SafeUrlPipe } from './safe-url.pipe';
 
 @NgModule({
    declarations: [
@@ -23,7 +25,9 @@ import { RegisterComponent } from './register/register.component';
     NavMenuComponent,
     AdminComponent,
     ListsComponent,
-    RegisterComponent
+    RegisterComponent,
+    EpisodeComponent,
+    SafeUrlPipe
    ],
    imports: [
     BrowserModule,

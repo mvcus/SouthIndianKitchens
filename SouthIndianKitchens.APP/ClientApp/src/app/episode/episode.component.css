@@ -1,0 +1,25 @@
+.iframe {
+  margin: 6px 6px;
+  border: 4px solid #eee;
+  box-shadow: rgb(224, 199, 199) 1px 1px 8px 1px;
+  cursor: pointer;
+}
+.modal-content {
+  width: 1000px !important;
+}
+ul {
+  padding: 0;
+  margin: 20px auto;
+  margin-left: auto;
+}
+li {
+  display: inline;
+}
+.Episode {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.color{
+    background-color: #9E9E9E;
+}
