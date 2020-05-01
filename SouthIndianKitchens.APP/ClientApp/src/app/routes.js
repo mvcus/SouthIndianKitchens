@@ -7,6 +7,7 @@ var auth_guard_1 = require("./_gaurds/auth.guard");
 var login_component_1 = require("./login/login.component");
 var register_component_1 = require("./register/register.component");
 var episode_component_1 = require("./episode/episode.component");
+var imageslider_component_1 = require("./imageslider/imageslider.component");
 exports.appRoutes = [
     { path: '', component: home_component_1.HomeComponent },
     {
@@ -20,6 +21,7 @@ exports.appRoutes = [
             { path: 'login', component: login_component_1.LoginComponent },
             { path: 'register', component: register_component_1.RegisterComponent },
             { path: 'episode', component: episode_component_1.EpisodeComponent },
+            { path: 'imageslider', component: imageslider_component_1.ImageSliderComponent },
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

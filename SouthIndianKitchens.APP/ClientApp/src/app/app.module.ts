@@ -15,6 +15,8 @@ import { appRoutes } from './routes';
 import { RegisterComponent } from './register/register.component';
 import { EpisodeComponent } from './episode/episode.component';
 import { SafeUrlPipe } from './safe-url.pipe';
+import { ImageSliderComponent } from './imageslider/imageslider.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
    declarations: [
@@ -27,13 +29,14 @@ import { SafeUrlPipe } from './safe-url.pipe';
     ListsComponent,
     RegisterComponent,
     EpisodeComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    ImageSliderComponent,
    ],
    imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-     RouterModule.forRoot(appRoutes),
+     RouterModule.forRoot(appRoutes), NgImageSliderModule,
    ],
    providers: [
       AuthService
