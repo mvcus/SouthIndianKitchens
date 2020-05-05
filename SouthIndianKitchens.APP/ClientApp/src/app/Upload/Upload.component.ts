@@ -4,6 +4,7 @@ import { User } from '../_Interfaces/user.model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpEventType, HttpClient } from '@angular/common/http';
 import { AuthService } from '../_services/auth.service';
+import { AlertifyService } from '../_services/alertify.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class UploadComponent implements OnInit {
   public address: string;
   public imgPath: string;
   public user: userToCreate;
-  public users: User[] = [];
+  userToCreate: string[]; 
 
   public response: { dbPath: '' };
   public uploadFinished = (event) => {
@@ -30,9 +31,10 @@ export class UploadComponent implements OnInit {
   public createImgPath = (serverPath: string) => {
     return this.authservice.baseUrl+'/${serverPath}';
   }
-  constructor(private http: HttpClient, private authservice: AuthService) { }
+  constructor(private http: HttpClient, private authservice: AuthService, private alertifyjs: AlertifyService) { }
 
   ngOnInit() {
+    this.getImages();
   }
 
   public uploadFile = (files) => {
@@ -52,33 +54,28 @@ export class UploadComponent implements OnInit {
           this.message = 'Upload success.';
           this.onUploadFinished.emit(event.body);
         }
-        this.imgPath = "Resources/Imgages/" + fileToUpload.name;
+        this.imgPath = "Resources/Images/" + fileToUpload.name;
       });
   }
   public onCreate = () => {
     this.user = {
       name: this.name,
       address: this.address,
-      imgPath: this.imgPath, //this.response.dbPath
+      imgPath: this.imgPath,
     }
 
     this.http.post(this.authservice.baseUrl + 'SavePath', this.user )
       .subscribe(res => {
         this.getImages();
         this.isCreate = false;
-
+        this.alertifyjs.message("Image saved Successfully");
       });
   }
-  //private getUsers = () => {
-  //  this.http.get(this.authservice.baseUrl +'users')
-  //    .subscribe(res => {
-  //      this.users = res as User[];
-  //    });
-  //}
+
   private getImages = () => {
     this.http.get(this.authservice.baseUrl + 'getImages')
       .subscribe(res => {
-        this.users = res as User[];
+        this.userToCreate = res as string[];
       });
   }
 

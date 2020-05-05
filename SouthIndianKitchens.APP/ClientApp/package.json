@@ -28,6 +28,7 @@
     "bootstrap": "^4.4.1",
     "core-js": "^2.6.11",
     "jquery": "3.4.1",
+    "ng-alertify": "^1.0.2",
     "ng-image-slider": "^2.4.1",
     "ngx-useful-swiper": "^9.0.3",
     "oidc-client": "^1.10.1",

@@ -66,19 +66,11 @@ namespace SouthIndianKitchens.API.Controllers
         [Route("SavePath")]
         public async Task<IActionResult> SavePath(ImageUploadDto ImageUploadDto)
         {
-            //if(!ModelState.IsValid)
-            // return BadRequest(ModelState);
-            ImageUploadDto.Address = Convert.ToString(ImageUploadDto.Address.Split("@")[0].ToLower());
-            ImageUploadDto.Name = ImageUploadDto.Name.ToLower();
-            ImageUploadDto.ImagePath = Convert.ToString(ImageUploadDto.Address.Split("@")[1].ToLower()); ;
-
-            //if (await _repo.UserExist(userForRegistrationDto.Username))
-            //    return BadRequest("User already Exist");
             var userToCreate = new UploadImage
             {
                 Name = ImageUploadDto.Name
             };
-            var createdImage = await _repo.AddImage(userToCreate, ImageUploadDto.Name, ImageUploadDto.Address, ImageUploadDto.ImagePath);
+            var createdImage = await _repo.AddImage(userToCreate, ImageUploadDto.Name, ImageUploadDto.Address, ImageUploadDto.ImgPath);
             return StatusCode(201);
         }
         [HttpGet]
@@ -88,32 +80,7 @@ namespace SouthIndianKitchens.API.Controllers
             var values = await _repo.getImages();
             return Ok(values);
         }
-        //[HttpPost]
-        //public IActionResult CreateUser([FromBody]User user)
-        //{
-        //    try
-        //    {
-        //        if (user == null)
-        //        {
-        //            return BadRequest("User object is null");
-        //        }
-
-        //        if (!ModelState.IsValid)
-        //        {
-        //            return BadRequest("Invalid model object");
-        //        }
-
-        //        user.Id = Guid.NewGuid();
-        //        _context.Add(user);
-        //        _context.SaveChanges();
-
-        //        return StatusCode(201);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, $"Internal server error: {ex}");
-        //    }
-        //}
+        
         //method is used to register the user in Db
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegistrationDto)

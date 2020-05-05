@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -41,6 +43,7 @@ namespace SouthIndianKitchens.API
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            services.AddDirectoryBrowser();
 
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -99,7 +102,21 @@ namespace SouthIndianKitchens.API
 
             app.UseAuthorization();
             app.UseCors(builder => builder.WithOrigins("http://localhost:44354"));
+            app.UseStaticFiles();// For the wwwroot folder
 
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                            Path.Combine(Directory.GetCurrentDirectory(), "Resources/Images")),
+                RequestPath = "/Resources/Images"
+            });
+            //Enable directory browsing
+            app.UseDirectoryBrowser(new DirectoryBrowserOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                            Path.Combine(Directory.GetCurrentDirectory(), "Resources/Images")),
+                RequestPath = "/Resources/Images"
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
