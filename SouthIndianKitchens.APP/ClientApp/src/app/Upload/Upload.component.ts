@@ -5,6 +5,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpEventType, HttpClient } from '@angular/common/http';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
+import { VideoToCreate } from '../_Interfaces/VideoToCreate.model';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -17,12 +19,18 @@ export class UploadComponent implements OnInit {
   public message: string;
   @Output() public onUploadFinished = new EventEmitter();
 
-  public isCreate: boolean ;
+  public isCreate: boolean;
+  public isCreate1: boolean;
   public name: string;
   public address: string;
   public imgPath: string;
+  public videoName: string;
+  public videoUrl: string;
+  public isActive: boolean;
   public user: userToCreate;
-  userToCreate: string[]; 
+  public videoToCreate: VideoToCreate;
+  userToCreate: string[];
+  videoUrlCreate: string[];
 
   public response: { dbPath: '' };
   public uploadFinished = (event) => {
@@ -35,6 +43,7 @@ export class UploadComponent implements OnInit {
 
   ngOnInit() {
     this.getImages();
+    this.getVideosUrl();
   }
 
   public uploadFile = (files) => {
@@ -79,10 +88,53 @@ export class UploadComponent implements OnInit {
       });
   }
 
+
+  private getVideosUrl = () => {
+    this.http.get(this.authservice.baseUrl + 'getVideoUrl')
+      .subscribe(res => {
+        this.videoUrlCreate = res as string[];
+      });
+  }
+
   public returnToCreate = () => {
     this.isCreate = true;
     this.name = '';
     this.address = '';
   }
 
+  public returnToVideosCreate = () => {
+    this.isCreate1 = true;
+    this.videoName = '';
+    this.videoUrl = '';
+    this.isActive = false;
+  }
+
+  public onVideoCreate = () => {
+    this.videoToCreate = {
+      videoName: this.videoName,
+      videoURL: this.videoUrl,
+      isActive: this.isActive = "true" ? true : false,
+    }
+
+    this.http.post(this.authservice.baseUrl + 'SaveVideoUrl', this.videoToCreate)
+      .subscribe(res => {
+        this.getImages();
+        this.isCreate1 = false;
+        this.alertifyjs.message("Video URL saved Successfully");
+      });
+  }
+  templateForm(value: any) {
+    this.videoToCreate = {
+      videoName: this.videoName,
+      videoURL: this.videoUrl,
+      isActive: this.isActive = "true" ? true : false,
+    }
+    alert(JSON.stringify(value));
+    this.http.post(this.authservice.baseUrl + 'SaveVideoUrl', this.videoToCreate)
+      .subscribe(res => {
+        this.getImages();
+        this.isCreate1 = false;
+        this.alertifyjs.message("Video URL saved Successfully");
+      });
+  }
 }

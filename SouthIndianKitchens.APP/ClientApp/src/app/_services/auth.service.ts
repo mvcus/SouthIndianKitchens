@@ -41,4 +41,8 @@ register(model: any){
   getImages() {
     return this.http.get(this.baseUrl + 'getImages');
   }
+
+  getVideoUrl() {
+    return this.http.get(this.baseUrl + 'getVideoUrl');
+  }
 }

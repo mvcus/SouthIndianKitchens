@@ -35,6 +35,7 @@
     <None Remove="ClientApp\src\app\routes.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\user.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
+    <None Remove="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
     <None Remove="routes.ts" />
     <None Remove="styles\et-core-unified-13-15864520477412.min.css" />
   </ItemGroup>
@@ -43,6 +44,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\routes.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\user.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
   </ItemGroup>
 
   <ItemGroup>

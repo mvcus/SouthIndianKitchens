@@ -158,7 +158,25 @@ et_pb_text_44.et_pb_text {
 
 
 .logo_container {
-  padding-top: 72px;
-  border-top-width: 10px;
+  padding-top: 45px;
+  /* border-top-width: 10px; */
   margin-top: 20px;
+}
+
+.et_header_style_split #main-header .centered-inline-logo-wrap {
+  margin: -162px 0;
+  height: 66px;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+.et_header_style_left .et-fixed-header #et-top-navigation, .et_header_style_split .et-fixed-header #et-top-navigation {
+  padding-top: 70px;
+}
+
+.et_fullwidth_nav #main-header .container {
+  width: 100%;
+  max-width: 100%;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 30px;
 }

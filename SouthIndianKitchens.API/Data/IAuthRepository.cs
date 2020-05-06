@@ -11,10 +11,14 @@ namespace SouthIndianKitchens.API.Data
 
         Task<UploadImage> AddImage(UploadImage addIMage, string name, string address, string path);
 
+        Task<UploadVideoURL> AddVideoUrl(UploadVideoURL addvideo, string videoName, string videoUrl, bool path);
+
         Task<Users> Login(string username, string password);
         Task<bool> UserExist(string username);
         Task Login(object username, string password);
 
         Task<System.Collections.Generic.IEnumerable<UploadImage>> getImages();
+
+        Task<System.Collections.Generic.IEnumerable<UploadVideoURL>> getVideoUrl();
     }
 }

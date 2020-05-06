@@ -73,6 +73,18 @@ namespace SouthIndianKitchens.API.Controllers
             var createdImage = await _repo.AddImage(userToCreate, ImageUploadDto.Name, ImageUploadDto.Address, ImageUploadDto.ImgPath);
             return StatusCode(201);
         }
+        [HttpPost]
+        [Route("SaveVideoUrl")]
+        public async Task<IActionResult> SaveVideoUrl(UploadVideoUrlDto UploadVideoUrlDto)
+        {
+            var videoUrl = new UploadVideoURL
+            {
+                VideoName = UploadVideoUrlDto.VideoName
+            };
+            var createdImage = await _repo.AddVideoUrl(videoUrl, UploadVideoUrlDto.VideoName, UploadVideoUrlDto.VideoURL, UploadVideoUrlDto.IsActive);
+            return StatusCode(201);
+        }
+
         [HttpGet]
         [Route("getImages")]
         public async Task<IActionResult> GetImage()
@@ -80,7 +92,15 @@ namespace SouthIndianKitchens.API.Controllers
             var values = await _repo.getImages();
             return Ok(values);
         }
-        
+
+        [HttpGet]
+        [Route("getVideoUrl")]
+        public async Task<IActionResult> getVideoUrl()
+        {
+            var values = await _repo.getVideoUrl();
+            return Ok(values);
+        }
+
         //method is used to register the user in Db
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegistrationDto)

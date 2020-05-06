@@ -8,8 +8,8 @@
   </div>    
   <div class="row Episode">    
     <ul>    
-      <li *ngFor="let video of (allVideos); trackBy: trackByFn;">    
-        <iframe width="350" height="300" class="iframe" [src]="video.embedUrl + video.id | safeUrl" frameborder="0" allowfullscreen> </iframe>
+      <li *ngFor="let video of (videoUrlCreate); trackBy: trackByFn;">    
+        <iframe width="350" height="300" class="iframe" [src]="video.videoURL | safeUrl" frameborder="0" allowfullscreen> </iframe>
       </li>    
     </ul>    
   </div>    

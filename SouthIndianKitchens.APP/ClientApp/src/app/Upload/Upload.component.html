@@ -1,70 +1,128 @@
 
   
-  <article class="container container-fluid">
-    <div class="row" style="margin-bottom:15px;">
-      <div class="col-md-3">
-        <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)">
-        <!--<input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)"  multiple>-->
-        <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
-      </div>
-      <div class="col-md-4">
-        <span class="upload" *ngIf="progress > 0">
-          {{progress}}%
-        </span>
-        <span class="upload" *ngIf="message">
-          {{message}}
-        </span>
-      </div>
+  
+  <div class="col-sm-8">
+    <div class="tab-panel">
+      <tabset class="member-tabset">
+        <tab heading="Edit Images URL">
+          <article class="container container-fluid">
+            <div class="row" style="margin-bottom:15px;">
+              <div class="col-md-3">
+                <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)">
+                <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+              </div>
+              <div class="col-md-4">
+                <span class="upload" *ngIf="progress > 0">
+                  {{progress}}%
+                </span>
+                <span class="upload" *ngIf="message">
+                  {{message}}
+                </span>
+              </div>
+            </div>
+
+            <section class="create" *ngIf="isCreate">
+              <h1>Save Images</h1>
+              <form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter Image name" [(ngModel)]="name">
+                </div>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="Enter Image address" [(ngModel)]="address">
+                  <span class="upload" *ngIf="imgPath!=null">
+                    <input type="hidden" class="form-control" id="imgPath" name="imgPath" [(ngModel)]="imgPath" value="{{imgPath}}">
+                  </span>
+                </div>
+                <div class="row">
+                  <div class="offset-md-5 col-md-2">
+                    <button type="button" class="btn btn-primary" (click)="onCreate()">Create </button>
+                  </div>
+                </div>
+              </form>
+            </section>
+
+            <section class="users" *ngIf="!isCreate">
+              <div class="row">
+                <div class="offset-md-10 col-md-2">
+                  <button type="button" class="btn btn-primary" (click)="returnToCreate()">Save new Images</button>
+                </div>
+              </div>
+              <h3 class="text-center text-uppercase">List of Uploaded Images</h3>
+              <div class="container py-5" style="display:block;" *ngIf="userToCreate?.length > 0">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Image Path</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let user of userToCreate">
+                      <td>{{user.name}}</td>
+                      <td>{{user.address}}</td>
+                      <td>{{user.imgPath}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </article>
+        </tab>
+        <tab heading="Edit Video URL">
+          <article class="container container-fluid">
+            <section class="create" *ngIf="isCreate1">
+              <h1>Save Videos URL</h1>
+              <form >
+                <div class="form-group">
+                  <label for="name">Video Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter Video Name" [(ngModel)]="videoName">
+                  <label for="url">Video URL</label>
+                  <input type="text" class="form-control" id="url" name="url" placeholder="Enter Video URL" [(ngModel)]="videoUrl">
+                  <br />
+                  <div class="custom-control custom-radio">
+                    <input id="isActive" type="radio" class="custom-control-input" value="true" name="isActive" [(ngModel)]="isActive">
+                    <label class="custom-control-label" for="isActive">Active</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="offset-md-5 col-md-2">
+                    <button type="button" class="btn btn-primary" (click)="onVideoCreate()">Create </button>
+                  </div>
+                </div>
+              </form>
+            </section>
+
+            <section class="users" *ngIf="!isCreate1">
+              <div class="row">
+                <div class="offset-md-10 col-md-2">
+                  <button type="button" class="btn btn-primary" (click)="returnToVideosCreate()">Save new Video Url</button>
+                </div>
+              </div>
+              <h3 class="text-center text-uppercase">List of Uploaded video URLS</h3>
+              <div class="container py-5" style="display:block;" *ngIf="videoUrlCreate?.length > 0">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Video Name</th>
+                      <th scope="col">Video URL</th>
+                      <th scope="col">Active Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let videourl of videoUrlCreate">
+                      <td>{{videourl.videoName}}</td>
+                      <td>{{videourl.videoURL}}</td>
+                      <td>{{videourl.IsActive == True ? 'Active' : 'Deactive'}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </article>
+        </tab>
+      </tabset>
     </div>
-
-    <section class="create" *ngIf="isCreate">
-      <h1>Save Images</h1>
-      <form>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Enter Image name" [(ngModel)]="name">
-        </div>
-        <div class="form-group">
-          <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" name="address" placeholder="Enter Image address" [(ngModel)]="address">
-          <span class="upload" *ngIf="imgPath!=null">
-            <input type="hidden" class="form-control" id="imgPath" name="imgPath" [(ngModel)]="imgPath" value="{{imgPath}}">
-          </span>
-        </div>
-        <div class="row">
-          <div class="offset-md-5 col-md-2">
-            <button type="button" class="btn btn-primary" (click)="onCreate()">Create </button>
-          </div>
-        </div>
-      </form>
-    </section>
-
-    <section class="users" *ngIf="!isCreate">
-      <div class="row">
-        <div class="offset-md-10 col-md-2">
-          <button type="button" class="btn btn-primary" (click)="returnToCreate()">Save new Images</button>
-        </div>
-      </div>
-      <div class="container py-5" style="display:block;" *ngIf="userToCreate?.length > 0">
-        <h3 class="text-center text-uppercase">List of Uploaded Images</h3>
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Address</th>
-              <th scope="col">Image Path</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of userToCreate">
-              <td>{{user.name}}</td>
-              <td>{{user.address}}</td>
-              <td>{{user.imgPath}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-   
-  </article>
+  </div>

@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './_services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,7 @@ import { EpisodeComponent } from './episode/episode.component';
 import { SafeUrlPipe } from './safe-url.pipe';
 import { ImageSliderComponent } from './imageslider/imageslider.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @NgModule({
    declarations: [
@@ -32,10 +34,12 @@ import { NgImageSliderModule } from 'ng-image-slider';
     SafeUrlPipe,
     ImageSliderComponent,
    ],
-   imports: [
+  imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule,
+    TabsModule.forRoot(),
+     FormsModule,
      RouterModule.forRoot(appRoutes), NgImageSliderModule,
    ],
    providers: [

@@ -67,6 +67,9 @@ namespace SouthIndianKitchens.API.Data
 
         }
 
+
+      
+
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
@@ -93,6 +96,22 @@ namespace SouthIndianKitchens.API.Data
         {
             var UploadImage = await _context.UploadImage.ToListAsync();
             return UploadImage;
+        }
+
+        public async Task<UploadVideoURL> AddVideoUrl(UploadVideoURL addvideo, string videoName, string videoUrl, bool path)
+        {
+            addvideo.VideoName = videoName;
+            addvideo.VideoURL = videoUrl;
+            addvideo.isActive = path;
+            await _context.UploadVideoURL.AddAsync(addvideo);
+            await _context.SaveChangesAsync();
+            return addvideo;
+        }
+
+        public async Task<IEnumerable<UploadVideoURL>> getVideoUrl()
+        {
+            var UploadVideoUrl = await _context.UploadVideoURL.Where(p =>p.isActive == true).ToListAsync();
+            return UploadVideoUrl;
         }
     }
 }

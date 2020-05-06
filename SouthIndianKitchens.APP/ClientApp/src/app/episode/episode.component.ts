@@ -1,18 +1,9 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-const Videodelatils: any[] = [
-  { embedUrl: 'https://www.youtube.com/embed/', id: 'tvd5nuee-Ak' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: 'Zjm9fQBBHiM' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: '-yOnhM3fYpw' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: '6dJgbUZhUQo' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: 'Q_g-bD5lgx8' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: 'M5WLK3C4ouA' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: 'KjPiSvMJu6I' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: 'Ud_EPPb1m40' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: 'CiPm_918kpE' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: '04WuV8oznS4' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: 'W8vTu_5ZM-I' },
-  { embedUrl: 'https://www.youtube.com/embed/', id: 'T1B305Mgxd8' },
- ];
+import { AuthService } from '../_services/auth.service';
+import { VideoToCreate } from '../_Interfaces/VideoToCreate.model';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-episode',
   templateUrl: './episode.component.html',
@@ -21,17 +12,26 @@ const Videodelatils: any[] = [
 export class EpisodeComponent implements OnInit {
   public youtubeUrl = 'https://www.youtube.com/watch?v=idY-JhU25MQ';
    public allVideo = [];
-   public allVideos: any[] = [];
-   getImages() {
-    return this.allVideo = Videodelatils; // .slice(0);
-   }
+  public allVideos: any[] = [];
+
+  public videoToCreate: VideoToCreate;
+  videoUrlCreate: string[];
+  public productsArray: VideoToCreate[];
+
+  private getVideosUrl = () => {
+    this.http.get(this.authService.baseUrl + 'getVideoUrl')
+      .subscribe(res => {
+        this.videoUrlCreate = res as string[];
+      });
+  }
+
   ngOnInit(): void {
   }
-  constructor() {
-    this.allVideos = this.getImages();
+  constructor(private authService: AuthService, private http: HttpClient) {
+    this.getVideosUrl();
   }
   trackByFn(index, item) {
-    return item.id;
+    return item.videoURL;
   }
  }
 
