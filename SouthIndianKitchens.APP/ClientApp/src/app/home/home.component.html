@@ -12,6 +12,10 @@
         src="https://chimpstatic.com/mcjs-connected/js/users/edae982af8bfc36575c8b0c89/f1c4ce066c6f7c520150107fe.js"></script>
 <script async=""
         src="https://www.googletagmanager.com/gtm.js?id=GTM-WGMRM86"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
   document.documentElement.className = "js";
 </script>
@@ -180,6 +184,9 @@
       href="https://www.ernestwright.co.uk/wp-content/uploads/2018/11/cropped-ms-icon-310x310-180x180.png" />
 <meta name="msapplication-TileImage"
       content="https://www.ernestwright.co.uk/wp-content/uploads/2018/11/cropped-ms-icon-310x310-270x270.png" />
+<!--<link rel="stylesheet"
+      id="et-core-unified-13-cached-inline-styles"
+      href="https://www.ernestwright.co.uk/wp-content/et-cache/13/et-core-unified-13-15864520477412.min.css" />-->
 <body class="home page-template-default page page-id-2 theme-Divi mt-2 mt-page-sample-page woocommerce-js et_bloom et_monarch et_button_no_icon et_pb_button_helper_class et_fullwidth_nav et_fixed_nav et_show_nav et_secondary_nav_enabled et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_split et_pb_svg_logo et_pb_footer_columns1 et_cover_background et_pb_gutter et_pb_gutters3 et_pb_pagebuilder_layout et_no_sidebar et_divi_theme et-db et_minified_js et_minified_css currency-eur woocommerce chrome"
       style="overflow-x: hidden;">
   <div id="page-container"
@@ -193,17 +200,17 @@
             style="top: 34px;">
       <div class="container clearfix et_menu_container">
         <div id="et-top-navigation" data-height="139" data-fixed-height="139">
-          <nav id="top-menu-nav">
+          <nav id="top-menu-nav" style="padding-bottom: 10px;">
             <ul id="top-menu" class="nav">
               <li id="menu-item-138"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-138" routerLinkActive="active">
                 <a [routerLink]="['/episode']">Episodes</a>
               </li>
               <li id="menu-item-137"
-                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137" routerLinkActive="active">
-                <a [routerLink]="['/recpie']">Recipes</a>
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137">
+                <a href="https://#/Recipes/">Recipes</a>
               </li>
-              <li class="centered-inline-logo-wrap" style="width: 162.054px;">
+              <li class="centered-inline-logo-wrap" style="width: 172px">
                 <div class="logo_container">
                   <span class="logo_helper"></span>
                   <a href="https://southindiankitchen.com">
@@ -213,11 +220,11 @@
               </li>
               <li id="menu-item-108"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108">
-                <a [routerLink]="['/reviews']">Reviews</a>
+                <a href="https://#/Reviews/">Reviews</a>
               </li>
               <li id="menu-item-200"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-200">
-                <a [routerLink]="['/aboutus']">ABOUT US</a>
+                <a href="https://#/about-us/">ABOUT US</a>
               </li>
             </ul>
           </nav>
@@ -319,9 +326,9 @@
                               Production is currently paused due to Covid-19.
                             </h4>
                             <p>
-                              South Indian Kitchens remains dedicated to the craft of
-                              making supreme quality, handmade scissors with
-                              perfect performance.
+                              South Indian Kitchens remains dedicated to the
+                              making supreme quality, food making with
+                              perfection.
                             </p>
                             <p>
                               However, our recipe are still available
@@ -347,7 +354,7 @@
                       </div>
                     </div>
                     <div class="et_pb_row et_pb_row_7 et_pb_gutters2">
-                      <app-imageslider></app-imageslider>
+                        <app-imageslider></app-imageslider>
                     </div>
                   </div>
                   <div class="et_pb_section et_pb_section_2 et_section_regular et_pb_section_sticky et_pb_section_sticky_mobile">
@@ -1028,4 +1035,18 @@
       <span><img src="" /></span>
     </div>
   </div>
+  <!--<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userToCreates of userToCreate;">
+        <td>{{ userToCreates.Address }}{{title}}</td>
+        <td>{{ userToCreates.ImgPath }}</td>
+      </tr>
+    </tbody>
+  </table>-->
 </body>
