@@ -1,0 +1,36 @@
+
+<div>
+  <div class="row">
+    <div class="col-sm-12 btn">
+      Image Gallery
+    </div>
+  </div>
+  <div class="row" style="margin-top:10px;margin-bottom: 10px;">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success" (click)="filterBy='all'">All</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success" (click)="filterBy='Breakfast'">Breakfast</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success" (click)="filterBy='Launch'">Launch</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success" (click)="filterBy='Dinner'">Dinner</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success" (click)="filterBy='Dinner'">FastFood</button>
+    </div>
+    <div class="row">
+      <ul>
+        <li *ngFor="let img of (allImages | filterimages:filterBy) ">
+          <a [routerLink]="['/image', img.id]">
+            <img src="assets/img/Recpie{{img.url}}" class="img" width="250" height="200">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
