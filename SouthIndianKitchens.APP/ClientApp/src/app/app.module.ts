@@ -1,4 +1,4 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/// <reference path="recpie/filterrecpie.pipe.ts" />
 import { AuthService } from './_services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -7,7 +7,6 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { UploadComponent } from './Upload/Upload.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { AdminComponent } from './admin/admin.component';
 import { ListsComponent } from './lists/lists.component';
@@ -16,9 +15,14 @@ import { appRoutes } from './routes';
 import { RegisterComponent } from './register/register.component';
 import { EpisodeComponent } from './episode/episode.component';
 import { SafeUrlPipe } from './safe-url.pipe';
-import { ImageSliderComponent } from './imageslider/imageslider.component';
-import { NgImageSliderModule } from 'ng-image-slider';
-import { TabsModule } from 'ngx-bootstrap/tabs';
+import { UploadImageService } from './_services/upload-image.service';
+import { UploadComponent } from './Upload/Upload.component';
+import { ImageDetailComponent } from './recpie/Recpie-Details.component';
+import { FilterimagesPipe } from './recpie/filterrecpie.pipe';
+import { RecpieComponent } from './recpie/recpie.component';
+import { ImageService } from './recpie/image.service';
+import { ReviewsComponent } from './reviews/reviews.compnent';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
    declarations: [
@@ -31,19 +35,25 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     ListsComponent,
     RegisterComponent,
     EpisodeComponent,
-    SafeUrlPipe,
-    ImageSliderComponent,
+    RecpieComponent,
+    ReviewsComponent,
+    AboutusComponent,
+    ImageDetailComponent,
+    FilterimagesPipe,
+    SafeUrlPipe
    ],
-  imports: [
-    BrowserAnimationsModule,
+   imports: [
     BrowserModule,
-    HttpClientModule,
-    TabsModule.forRoot(),
-     FormsModule,
-     RouterModule.forRoot(appRoutes), NgImageSliderModule,
+     HttpClientModule,
+     
+    FormsModule,
+     RouterModule.forRoot(appRoutes),
+     
    ],
    providers: [
-      AuthService
+     AuthService,
+     UploadImageService,
+     ImageService
    ],
    bootstrap: [
       AppComponent
