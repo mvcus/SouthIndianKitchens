@@ -88,7 +88,7 @@ namespace SouthIndianKitchens.API.Data
         }
         public async Task <int> DeleteImage(int delImageId)
         {
-            UploadImage deleteImageid1 = _context.UploadImage.Where(temp => temp.Id == temp.Id).FirstOrDefault();
+            UploadImage deleteImageid1 = _context.UploadImage.Where(temp => temp.Id == delImageId).FirstOrDefault();
             if(deleteImageid1 != null)
             {
                 _context.Remove(deleteImageid1);

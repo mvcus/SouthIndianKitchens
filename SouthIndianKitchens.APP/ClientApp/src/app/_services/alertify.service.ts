@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as alertify from 'alertify.js';
+import * as alertify from 'alertifyjs';
 
 
 @Injectable({

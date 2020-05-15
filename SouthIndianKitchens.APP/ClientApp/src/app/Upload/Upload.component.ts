@@ -112,7 +112,6 @@ export class UploadComponent implements OnInit {
   }
 
   public onDeleteClick(event, index) {
-    debugger;
     this.deleteImageDetails.id = this.userToCreate[index]['id'];
     this.deleteImageDetails.name = this.userToCreate[index]['name'];
     this.deleteImageDetails.address = this.userToCreate[index]['address'];
@@ -120,13 +119,13 @@ export class UploadComponent implements OnInit {
   }
 
   public onDeleteConfirmClick() {
-    debugger;
     return this.authservice.onDeleteImage(this.deleteImageDetails.id).subscribe(
       (response) => {
         this.deleteImageDetails.id = null;
         this.deleteImageDetails.name = null;
         this.deleteImageDetails.address = null;
         this.deleteImageDetails.imgPath = null;
+        this.getImages();
       }
     );
  
@@ -138,7 +137,8 @@ export class UploadComponent implements OnInit {
     //console.log("Logging Error", this.editImageDetails);
     return this.authservice.onUpdateImage(this.editImageDetails).subscribe(
       (response: userToCreate) => {
-        console.log(response);
+       // console.log(response);
+        this.getImages();
       },
       (error) => {
         console.log("TS error is ", error);
@@ -196,7 +196,6 @@ export class UploadComponent implements OnInit {
       videoURL: this.videoUrl,
       isActive: this.isActive = "true" ? true : false,
     }
-    alert(JSON.stringify(value));
     this.http.post(this.authservice.baseUrl + 'SaveVideoUrl', this.videoToCreate)
       .subscribe(res => {
         this.getImages();
