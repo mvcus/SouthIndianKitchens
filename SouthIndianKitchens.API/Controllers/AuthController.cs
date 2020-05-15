@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Web;
 using System.IO;
 using System.Net.Http.Headers;
+using Microsoft.EntityFrameworkCore;
 
 namespace SouthIndianKitchens.API.Controllers
 {
@@ -20,6 +21,7 @@ namespace SouthIndianKitchens.API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
         public AuthController(IAuthRepository repo, IConfiguration config)
@@ -62,6 +64,8 @@ namespace SouthIndianKitchens.API.Controllers
             }
         }
 
+
+
         [HttpPost]
         [Route("SavePath")]
         public async Task<IActionResult> SavePath(ImageUploadDto ImageUploadDto)
@@ -73,6 +77,10 @@ namespace SouthIndianKitchens.API.Controllers
             var createdImage = await _repo.AddImage(userToCreate, ImageUploadDto.Name, ImageUploadDto.Address, ImageUploadDto.ImgPath);
             return StatusCode(201);
         }
+
+
+        
+
         [HttpPost]
         [Route("SaveVideoUrl")]
         public async Task<IActionResult> SaveVideoUrl(UploadVideoUrlDto UploadVideoUrlDto)
@@ -93,6 +101,31 @@ namespace SouthIndianKitchens.API.Controllers
             return Ok(values);
         }
 
+       [HttpPut]
+       [Route("EditImage")]
+       public async Task<IActionResult>EditImage(UploadImage imageUploadDto)
+        {
+            var editImage = new UploadImage
+            {
+                ImgPath = imageUploadDto.ImgPath,
+                Id= imageUploadDto.Id,
+                Address =imageUploadDto.Address,
+                Name=imageUploadDto.Name                                
+            };
+            var createImage = await _repo.EditImage(editImage);
+            return StatusCode(201);
+        }
+        [HttpDelete]
+        [Route("DeleteImage/{deleteImageID}")]
+        public async Task<int>DeleteImage(int deleteImageID)
+        {
+            var deleteImage = new UploadImage
+            {
+                Id = deleteImageID
+            };
+            var deleteImg = await _repo.DeleteImage(deleteImage.Id);
+            return deleteImageID;
+        }
         [HttpGet]
         [Route("getVideoUrl")]
         public async Task<IActionResult> getVideoUrl()

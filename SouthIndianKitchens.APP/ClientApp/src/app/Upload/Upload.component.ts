@@ -7,7 +7,10 @@ import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { VideoToCreate } from '../_Interfaces/VideoToCreate.model';
 import { FormsModule } from '@angular/forms';
-
+import { editImageList } from '../Upload/editImageList';
+import { deleteImageDetails } from '../Upload/delteImageDetails';
+import { imageToDelete } from '../_Interfaces/imageToDelete';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-upload',
@@ -28,22 +31,41 @@ export class UploadComponent implements OnInit {
   public videoUrl: string;
   public isActive: boolean;
   public user: userToCreate;
+  //public image: imageToDelete;
   public videoToCreate: VideoToCreate;
   userToCreate: string[];
   videoUrlCreate: string[];
+  imageToDelete: string[];
+
+  userToCreate1: userToCreate[] = [];
+  imageToDelete1: imageToDelete[] = [];
+
+
+
+  editIndex: number = null;
+  editImageDetails: editImageList = new editImageList();
+  upLoadDetailsList: editImageList[] = [];
+  deleteImageDetails: deleteImageDetails = new deleteImageDetails();
+
+
 
   public response: { dbPath: '' };
   public uploadFinished = (event) => {
     this.response = event;
   }
   public createImgPath = (serverPath: string) => {
-    return this.authservice.baseUrl+'/${serverPath}';
+    return this.authservice.baseUrl + '/${serverPath}';
   }
   constructor(private http: HttpClient, private authservice: AuthService, private alertifyjs: AlertifyService) { }
 
   ngOnInit() {
     this.getImages();
     this.getVideosUrl();
+  }
+  onEditClick(event, index: number) {
+
+    //console.log(event, index);
+
   }
 
   public uploadFile = (files) => {
@@ -73,12 +95,57 @@ export class UploadComponent implements OnInit {
       imgPath: this.imgPath,
     }
 
-    this.http.post(this.authservice.baseUrl + 'SavePath', this.user )
+
+    this.http.post(this.authservice.baseUrl + 'SavePath', this.user)
       .subscribe(res => {
         this.getImages();
         this.isCreate = false;
         this.alertifyjs.message("Image saved Successfully");
       });
+  }
+  public onEditImage(event, index) {
+    this.editImageDetails.id = this.userToCreate[index]['id'];
+    this.editImageDetails.name = this.userToCreate[index]['name'];
+    this.editImageDetails.address = this.userToCreate[index]['address'];
+    this.editIndex = index;
+
+  }
+
+  public onDeleteClick(event, index) {
+    debugger;
+    this.deleteImageDetails.id = this.userToCreate[index]['id'];
+    this.deleteImageDetails.name = this.userToCreate[index]['name'];
+    this.deleteImageDetails.address = this.userToCreate[index]['address'];
+    this.editIndex = index;
+  }
+
+  public onDeleteConfirmClick() {
+    debugger;
+    return this.authservice.onDeleteImage(this.deleteImageDetails.id).subscribe(
+      (response) => {
+        this.deleteImageDetails.id = null;
+        this.deleteImageDetails.name = null;
+        this.deleteImageDetails.address = null;
+        this.deleteImageDetails.imgPath = null;
+      }
+    );
+ 
+  }
+
+
+  onUpdateImage() {
+    //console.log("Update click is working fine");
+    //console.log("Logging Error", this.editImageDetails);
+    return this.authservice.onUpdateImage(this.editImageDetails).subscribe(
+      (response: userToCreate) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log("TS error is ", error);
+      }
+     
+    );
+
   }
 
   private getImages = () => {

@@ -7,7 +7,9 @@ var auth_guard_1 = require("./_gaurds/auth.guard");
 var login_component_1 = require("./login/login.component");
 var register_component_1 = require("./register/register.component");
 var episode_component_1 = require("./episode/episode.component");
-var imageslider_component_1 = require("./imageslider/imageslider.component");
+var recpie_component_1 = require("./recpie/recpie.component");
+var reviews_compnent_1 = require("./reviews/reviews.compnent");
+var aboutus_component_1 = require("./aboutus/aboutus.component");
 exports.appRoutes = [
     { path: '', component: home_component_1.HomeComponent },
     {
@@ -21,7 +23,9 @@ exports.appRoutes = [
             { path: 'login', component: login_component_1.LoginComponent },
             { path: 'register', component: register_component_1.RegisterComponent },
             { path: 'episode', component: episode_component_1.EpisodeComponent },
-            { path: 'imageslider', component: imageslider_component_1.ImageSliderComponent },
+            { path: 'recpie', component: recpie_component_1.RecpieComponent },
+            { path: 'reviews', component: reviews_compnent_1.ReviewsComponent },
+            { path: 'aboutus', component: aboutus_component_1.AboutusComponent }
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

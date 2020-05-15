@@ -1,128 +1,268 @@
 
-  
-  
-  <div class="col-sm-8">
-    <div class="tab-panel">
-      <tabset class="member-tabset">
-        <tab heading="Edit Images URL">
-          <article class="container container-fluid">
-            <div class="row" style="margin-bottom:15px;">
-              <div class="col-md-3">
-                <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)">
-                <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+<div class="col-sm-8">
+  <div class="tab-panel">
+    <tabset class="member-tabset">
+      <tab heading="Edit Images URL">
+        <article class="container container-fluid">
+          <div class="row" style="margin-bottom:15px;">
+            <div class="col-md-3">
+              <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)">
+              <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+            </div>
+            <div class="col-md-4">
+              <span class="upload" *ngIf="progress > 0">
+                {{progress}}%
+              </span>
+              <span class="upload" *ngIf="message">
+                {{message}}
+              </span>
+            </div>
+          </div>
+
+          <section class="create" *ngIf="isCreate">
+            <h1>Save Images</h1>
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Image name" [(ngModel)]="name">
               </div>
-              <div class="col-md-4">
-                <span class="upload" *ngIf="progress > 0">
-                  {{progress}}%
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Enter Image address" [(ngModel)]="address">
+                <span class="upload" *ngIf="imgPath!=null">
+                  <input type="hidden" class="form-control" id="imgPath" name="imgPath" [(ngModel)]="imgPath" value="{{imgPath}}">
                 </span>
-                <span class="upload" *ngIf="message">
-                  {{message}}
-                </span>
+              </div>
+              <div class="row">
+                <div class="offset-md-5 col-md-2">
+                  <button type="button" class="btn btn-primary" (click)="onCreate()">Create </button>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <section class="users" *ngIf="!isCreate">
+            <div class="row">
+              <div class="offset-md-10 col-md-2">
+                <button type="button" class="btn btn-primary" (click)="returnToCreate()">Save new Images</button>
               </div>
             </div>
-
-            <section class="create" *ngIf="isCreate">
-              <h1>Save Images</h1>
-              <form>
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter Image name" [(ngModel)]="name">
+            <h3 class="text-center text-uppercase">List of Uploaded Images</h3>
+            <div class="container py-5" style="display:block;" *ngIf="userToCreate?.length > 0">
+              <table id="imgtable" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" id="checkallimg" /></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Image Path</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                    <th>Testing Edit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of userToCreate; let i=index">
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.address}}</td>
+                    <td>{{user.imgPath}}</td>
+                    <td><p data-placement="top" title="Edit"><button (click)="onEditImage($event,i)" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button (click)="onDeleteClick($event, i)" data-toggle="modal"  class="btn btn-danger btn-xs" data-title="Delete" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                    <td><button>Testing Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <!--Pagination-->
+              <div class="clearfix"></div>
+              <ul class="pagination pull-right">
+                <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+              </ul>
+            </div>
+          </section>
+        </article>
+      </tab>
+      <tab heading="Edit Video URL">
+        <article class="container container-fluid">
+          <section class="create" *ngIf="isCreate1">
+            <h1>Save Videos URL</h1>
+            <form>
+              <div class="form-group">
+                <label for="name">Video Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Video Name" [(ngModel)]="videoName">
+                <label for="url">Video URL</label>
+                <input type="text" class="form-control" id="url" name="url" placeholder="Enter Video URL" [(ngModel)]="videoUrl">
+                <br />
+                <div class="custom-control custom-radio">
+                  <input id="isActive" type="radio" class="custom-control-input" value="true" name="isActive" [(ngModel)]="isActive">
+                  <label class="custom-control-label" for="isActive">Active</label>
                 </div>
-                <div class="form-group">
-                  <label for="address">Address</label>
-                  <input type="text" class="form-control" id="address" name="address" placeholder="Enter Image address" [(ngModel)]="address">
-                  <span class="upload" *ngIf="imgPath!=null">
-                    <input type="hidden" class="form-control" id="imgPath" name="imgPath" [(ngModel)]="imgPath" value="{{imgPath}}">
-                  </span>
-                </div>
-                <div class="row">
-                  <div class="offset-md-5 col-md-2">
-                    <button type="button" class="btn btn-primary" (click)="onCreate()">Create </button>
-                  </div>
-                </div>
-              </form>
-            </section>
-
-            <section class="users" *ngIf="!isCreate">
+              </div>
               <div class="row">
-                <div class="offset-md-10 col-md-2">
-                  <button type="button" class="btn btn-primary" (click)="returnToCreate()">Save new Images</button>
+                <div class="offset-md-5 col-md-2">
+                  <button type="button" class="btn btn-primary" (click)="onVideoCreate()">Create </button>
                 </div>
               </div>
-              <h3 class="text-center text-uppercase">List of Uploaded Images</h3>
-              <div class="container py-5" style="display:block;" *ngIf="userToCreate?.length > 0">
-                <table class="table table-bordered table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">Name</th>
-                      <th scope="col">Address</th>
-                      <th scope="col">Image Path</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let user of userToCreate">
-                      <td>{{user.name}}</td>
-                      <td>{{user.address}}</td>
-                      <td>{{user.imgPath}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-          </article>
-        </tab>
-        <tab heading="Edit Video URL">
-          <article class="container container-fluid">
-            <section class="create" *ngIf="isCreate1">
-              <h1>Save Videos URL</h1>
-              <form >
-                <div class="form-group">
-                  <label for="name">Video Name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter Video Name" [(ngModel)]="videoName">
-                  <label for="url">Video URL</label>
-                  <input type="text" class="form-control" id="url" name="url" placeholder="Enter Video URL" [(ngModel)]="videoUrl">
-                  <br />
-                  <div class="custom-control custom-radio">
-                    <input id="isActive" type="radio" class="custom-control-input" value="true" name="isActive" [(ngModel)]="isActive">
-                    <label class="custom-control-label" for="isActive">Active</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="offset-md-5 col-md-2">
-                    <button type="button" class="btn btn-primary" (click)="onVideoCreate()">Create </button>
-                  </div>
-                </div>
-              </form>
-            </section>
+            </form>
+          </section>
 
-            <section class="users" *ngIf="!isCreate1">
-              <div class="row">
-                <div class="offset-md-10 col-md-2">
-                  <button type="button" class="btn btn-primary" (click)="returnToVideosCreate()">Save new Video Url</button>
-                </div>
+          <section class="users" *ngIf="!isCreate1">
+            <div class="row">
+              <div class="offset-md-10 col-md-2">
+                <button type="button" class="btn btn-primary" (click)="returnToVideosCreate()">Save new Video Url</button>
               </div>
-              <h3 class="text-center text-uppercase">List of Uploaded video URLS</h3>
-              <div class="container py-5" style="display:block;" *ngIf="videoUrlCreate?.length > 0">
-                <table class="table table-bordered table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">Video Name</th>
-                      <th scope="col">Video URL</th>
-                      <th scope="col">Active Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let videourl of videoUrlCreate">
-                      <td>{{videourl.videoName}}</td>
-                      <td>{{videourl.videoURL}}</td>
-                      <td>{{videourl.IsActive == True ? 'Active' : 'Deactive'}}</td>
-                    </tr>
-                  </tbody>
-                </table>
+            </div>
+            <h3 class="text-center text-uppercase">List of Uploaded video URLS</h3>
+            <div class="container py-5" style="display:block;" *ngIf="videoUrlCreate?.length > 0">
+              <table id="videotbl" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" id="checkall" /></th>
+                    <th scope="col">Video Name</th>
+                    <th scope="col">Video URL</th>
+                    <th scope="col">Active Status</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let videourl of videoUrlCreate">
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>{{videourl.videoName}}</td>
+                    <td>{{videourl.videoURL}}</td>
+                    <td>{{videourl.IsActive == True ? 'Active' : 'Deactive'}}</td>
+                    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                  </tr>
+                </tbody>
+              </table>
+              <!--Pagination-->
+              <div class="clearfix"></div>
+              <ul class="pagination pull-right">
+                <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+              </ul>
+            </div>
+          </section>
+        </article>
+      </tab>
+    </tabset>
+    <form>
+      <div class="modal" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+              <h4 class="modal-title custom_align" id="Heading">Edit Your Image Details</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <input class="form-control" id="txtEditImageName" [(ngModel)]="editImageDetails.name" name="def" type="text">
               </div>
-            </section>
-          </article>
-        </tab>
-      </tabset>
+              <div class="form-group">
+
+                <input class="form-control " id="txtEditImageAddress" [(ngModel)]="editImageDetails.address" name="abc" type="text">
+              </div>
+
+            </div>
+            <div class="modal-footer ">
+              <button type="button" class="btn btn-warning btn-lg" (click)="onUpdateImage()" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+
+      <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close"  data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+              <h4 class="modal-title custom_align" id="Heading">Delete this Entry</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+            </div>
+            <div class="modal-footer ">
+              <button type="button"  name="delete" (click)="onDeleteConfirmClick()" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+              <button type="button" class="btn btn-info" name="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+
+
+    </form>
+
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

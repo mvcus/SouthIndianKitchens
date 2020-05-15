@@ -4,6 +4,7 @@ using SouthIndianKitchens.API.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SouthIndianKitchens.API.Data
 {
@@ -67,10 +68,44 @@ namespace SouthIndianKitchens.API.Data
 
         }
 
+        public async Task<UploadImage>EditImage(UploadImage uploadImage1)
+        {
 
-      
+            UploadImage uploadImage = _context.UploadImage.Where(temp => temp.Id == uploadImage1.Id).FirstOrDefault();
+            if (uploadImage != null)
+            {
+                uploadImage.Name = uploadImage1.Name;
+                uploadImage.Address = uploadImage1.Address;
+              
+               // await _context.UploadImage.AddAsync(uploadImage);
+                await _context.SaveChangesAsync();
+                return uploadImage;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public async Task <int> DeleteImage(int delImageId)
+        {
+            UploadImage deleteImageid1 = _context.UploadImage.Where(temp => temp.Id == temp.Id).FirstOrDefault();
+            if(deleteImageid1 != null)
+            {
+                _context.Remove(deleteImageid1);
+                await _context.SaveChangesAsync();              
+                return delImageId;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+     
 
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+
+
+
+private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {
@@ -113,5 +148,10 @@ namespace SouthIndianKitchens.API.Data
             var UploadVideoUrl = await _context.UploadVideoURL.Where(p =>p.isActive == true).ToListAsync();
             return UploadVideoUrl;
         }
+
+        //public Task<UploadImage> EditImage(UploadImage addIMage, string name, string address, string path)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

@@ -11,6 +11,11 @@ namespace SouthIndianKitchens.API.Data
 
         Task<UploadImage> AddImage(UploadImage addIMage, string name, string address, string path);
 
+        Task<UploadImage> EditImage(UploadImage editImage);
+
+        Task<int> DeleteImage(int delImageId);
+       
+        //Task<UploadVideoURL> EditVideoUrl(UploadVideoURL addvideo, int id, string videoName, string videoUrl, bool path);
         Task<UploadVideoURL> AddVideoUrl(UploadVideoURL addvideo, string videoName, string videoUrl, bool path);
 
         Task<Users> Login(string username, string password);
@@ -20,5 +25,6 @@ namespace SouthIndianKitchens.API.Data
         Task<System.Collections.Generic.IEnumerable<UploadImage>> getImages();
 
         Task<System.Collections.Generic.IEnumerable<UploadVideoURL>> getVideoUrl();
+        
     }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { id } from '../../../dist/main';
 
 
 @Injectable({
@@ -13,7 +14,8 @@ baseUrl = '/api/auth/';
 
   constructor(private http: HttpClient) {   }
 
-login(model: any) {
+login(model: any)
+{
 
   return this.http.post(this.baseUrl + 'login', model).pipe(
     map((response: any) => {
@@ -25,6 +27,21 @@ login(model: any) {
   );
 }
 
+
+  onUpdateImage(model: any) {   
+    return this.http.put(this.baseUrl + 'EditImage', model);
+  }
+
+  onDeleteImage(model: any) {
+    console.log("Hi checking Model ", model);
+    console.log("Hi checkingModel Id only ", model.id);
+    //return this.http.delete(`${this.baseUrl}/${model.id}`,{ responseType: 'text' });
+     return this.http.delete(this.baseUrl + 'DeleteImage/'+model.id);
+    //return this.http.delete(this.baseUrl + "/DeleteImage/DeleteImage?deleteImageID=" + 1);
+    // '/api/auth/DeleteImage/DeleteImage?deleteImageID=' +1
+    
+  }
+  
 register(model: any){
   return this.http.post(this.baseUrl + 'register', model);
 }

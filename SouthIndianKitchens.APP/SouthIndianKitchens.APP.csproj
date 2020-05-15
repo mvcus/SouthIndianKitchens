@@ -32,7 +32,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Edit\Edit.Component.specs.ts" />
+    <None Remove="ClientApp\src\app\Edit\Edit.Component.ts" />
     <None Remove="ClientApp\src\app\routes.ts" />
+    <None Remove="ClientApp\src\app\Upload\delteImageDetails.ts" />
+    <None Remove="ClientApp\src\app\Upload\editImageList.ts" />
+    <None Remove="ClientApp\src\app\_Interfaces\imageToDelete.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\user.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
@@ -41,7 +46,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\Edit\Edit.Component.specs.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Edit\Edit.Component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\routes.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Upload\delteImageDetails.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Upload\editImageList.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\imageToDelete.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\user.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
