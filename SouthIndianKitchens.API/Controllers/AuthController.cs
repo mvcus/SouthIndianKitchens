@@ -123,6 +123,7 @@ namespace SouthIndianKitchens.API.Controllers
             {
                 Id = deleteImageID
             };
+
             var deleteImg = await _repo.DeleteImage(deleteImage.Id);
             return deleteImageID;
         }
