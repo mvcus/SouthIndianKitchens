@@ -25,21 +25,19 @@ login(model: any)
     })
   );
 }
-
-
   onUpdateImage(model: any) {   
     return this.http.put(this.baseUrl + 'EditImage', model);
   }
-
   onDeleteImage(model: any) {
-    debugger;
-    console.log("Hi checking Model ", model);
-    console.log("Hi checkingModel Id only ", model.id);
-    //return this.http.delete(`${this.baseUrl}/${model.id}`,{ responseType: 'text' });
-     return this.http.delete(this.baseUrl + 'DeleteImage/'+ model);
-    //return this.http.delete(this.baseUrl + "/DeleteImage/DeleteImage?deleteImageID=" + 1);
-    // '/api/auth/DeleteImage/DeleteImage?deleteImageID=' +1
-    
+    return this.http.delete(this.baseUrl + 'DeleteImage/' + model);
+  }
+
+  onUpdateVideo(model: any) {
+    return this.http.put(this.baseUrl + 'EditVideo', model);
+  }
+
+  onDeleteVideo(model: any) {
+    return this.http.delete(this.baseUrl + 'DeleteVideo/' + model);
   }
   
 register(model: any){

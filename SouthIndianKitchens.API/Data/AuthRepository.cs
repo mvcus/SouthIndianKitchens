@@ -100,12 +100,42 @@ namespace SouthIndianKitchens.API.Data
                 return -1;
             }
         }
-     
+        
+
+        public async Task<int> DeleteVideo(int delVideoId)
+        {
+            UploadVideoURL uploadVideo = _context.UploadVideoURL.Where(temp => temp.Id == delVideoId).FirstOrDefault();
+            if (uploadVideo != null)
+            {
+                _context.Remove(uploadVideo);
+                await _context.SaveChangesAsync();
+                return delVideoId;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public async Task<UploadVideoURL> EditVideo(UploadVideoURL editVideo)
+        {
+
+            UploadVideoURL uploadVideo = _context.UploadVideoURL.Where(temp => temp.Id == editVideo.Id).FirstOrDefault();
+            if (uploadVideo != null)
+            {
+                uploadVideo.VideoName = editVideo.VideoName;
+                uploadVideo.VideoURL = editVideo.VideoURL;
+                await _context.SaveChangesAsync();
+                return uploadVideo;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
 
-
-
-private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {
@@ -148,6 +178,7 @@ private void CreatePasswordHash(string password, out byte[] passwordHash, out by
             var UploadVideoUrl = await _context.UploadVideoURL.Where(p =>p.isActive == true).ToListAsync();
             return UploadVideoUrl;
         }
+
 
         //public Task<UploadImage> EditImage(UploadImage addIMage, string name, string address, string path)
         //{

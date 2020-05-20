@@ -9,8 +9,10 @@ import { VideoToCreate } from '../_Interfaces/VideoToCreate.model';
 import { FormsModule } from '@angular/forms';
 import { editImageList } from '../Upload/editImageList';
 import { deleteImageDetails } from '../Upload/delteImageDetails';
+import { delteVideoDetails } from '../Upload/deleteVideoDetails';
 import { imageToDelete } from '../_Interfaces/imageToDelete';
 import { error } from 'protractor';
+import { editVideoList } from './editVideoList';
 
 @Component({
   selector: 'app-upload',
@@ -37,15 +39,12 @@ export class UploadComponent implements OnInit {
   videoUrlCreate: string[];
   imageToDelete: string[];
 
-  userToCreate1: userToCreate[] = [];
-  imageToDelete1: imageToDelete[] = [];
-
-
-
   editIndex: number = null;
   editImageDetails: editImageList = new editImageList();
-  upLoadDetailsList: editImageList[] = [];
   deleteImageDetails: deleteImageDetails = new deleteImageDetails();
+
+  editVideoDetails: editVideoList = new editVideoList();
+  deleteVideoDetails: delteVideoDetails = new delteVideoDetails();
 
 
 
@@ -61,11 +60,6 @@ export class UploadComponent implements OnInit {
   ngOnInit() {
     this.getImages();
     this.getVideosUrl();
-  }
-  onEditClick(event, index: number) {
-
-    //console.log(event, index);
-
   }
 
   public uploadFile = (files) => {
@@ -128,22 +122,57 @@ export class UploadComponent implements OnInit {
         this.getImages();
       }
     );
- 
   }
 
 
+
+  // Delete and Edit Command for Videos ///
+  public onEditVideo(event, index) {
+    this.editVideoDetails.id = this.videoUrlCreate[index]['id'];
+    this.editVideoDetails.videoName = this.videoUrlCreate[index]['videoName'];
+    this.editVideoDetails.videoURL = this.videoUrlCreate[index]['videoURL'];
+    this.editIndex = index;
+  }
+
+  public onDeleteVideoClick(event, index) {
+    this.deleteVideoDetails.id = this.videoUrlCreate[index]['id'];
+   // this.editVideoDetails.videoName = this.videoUrlCreate[index]['videoName'];
+   // this.editVideoDetails.videoURL = this.videoUrlCreate[index]['videoURL'];
+    this.editIndex = index;
+  }
+
+  public onDeleteVideoConfirmClick() {
+    return this.authservice.onDeleteVideo(this.deleteVideoDetails.id).subscribe(
+      (response) => {
+        this.deleteVideoDetails.id = null;
+        this.deleteVideoDetails.videoName = null;
+        this.deleteVideoDetails.videoURL = null;
+        this.deleteVideoDetails.isActive = null;
+        this.getVideosUrl();
+      }
+    );
+  }
+
+  onUpdateVideo() {
+    return this.authservice.onUpdateVideo(this.editVideoDetails).subscribe(
+      (response: VideoToCreate) => {
+        this.getVideosUrl();
+      },
+      (error) => {
+        console.log("TS error is ", error);
+      }
+    );
+
+  }
+
   onUpdateImage() {
-    //console.log("Update click is working fine");
-    //console.log("Logging Error", this.editImageDetails);
     return this.authservice.onUpdateImage(this.editImageDetails).subscribe(
       (response: userToCreate) => {
-       // console.log(response);
         this.getImages();
       },
       (error) => {
         console.log("TS error is ", error);
       }
-     
     );
 
   }

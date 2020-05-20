@@ -126,6 +126,34 @@ namespace SouthIndianKitchens.API.Controllers
             var deleteImg = await _repo.DeleteImage(deleteImage.Id);
             return deleteImageID;
         }
+
+
+        [HttpPut]
+        [Route("EditVideo")]
+        public async Task<IActionResult> EditVideo(UploadVideoURL imageVideoDto)
+        {
+            var editVideo = new UploadVideoURL
+            {
+                VideoName = imageVideoDto.VideoName,
+                Id = imageVideoDto.Id,
+                VideoURL = imageVideoDto.VideoURL,
+                isActive = imageVideoDto.isActive
+            };
+            var createImage = await _repo.EditVideo(editVideo);
+            return StatusCode(201);
+        }
+        [HttpDelete]
+        [Route("DeleteVideo/{deleteVideoID}")]
+        public async Task<int> DeleteVideo(int deleteVideoID)
+        {
+            var deleteVideo = new UploadVideoURL
+            {
+                Id = deleteVideoID
+            };
+            var deleteImg = await _repo.DeleteVideo(deleteVideo.Id);
+            return deleteVideoID;
+        }
+
         [HttpGet]
         [Route("getVideoUrl")]
         public async Task<IActionResult> getVideoUrl()

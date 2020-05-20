@@ -14,7 +14,11 @@ namespace SouthIndianKitchens.API.Data
         Task<UploadImage> EditImage(UploadImage editImage);
 
         Task<int> DeleteImage(int delImageId);
-       
+
+        Task<UploadVideoURL> EditVideo(UploadVideoURL editVideo);
+
+        Task<int> DeleteVideo(int delVideoId);
+
         //Task<UploadVideoURL> EditVideoUrl(UploadVideoURL addvideo, int id, string videoName, string videoUrl, bool path);
         Task<UploadVideoURL> AddVideoUrl(UploadVideoURL addvideo, string videoName, string videoUrl, bool path);
 
