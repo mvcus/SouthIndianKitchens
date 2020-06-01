@@ -153,7 +153,8 @@ et_pb_text_44.et_pb_text {
 
 .et_pb_slider .et_pb_slide_0 {
   background-color: #d6d6d6;
-  background-image: url('\southindiankitchens\southindiankitchens.app\images\homepagelogo.jpeg');
+  /*background-image: url('/southindiankitchens/southindiankitchens.app/images/homepagelogo.jpeg');*/
+  background-image: url('/assets/img/Homepage-Logo.jpg');
 }
 
 

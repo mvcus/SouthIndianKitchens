@@ -117,9 +117,13 @@ namespace SouthIndianKitchens.API
                             Path.Combine(Directory.GetCurrentDirectory(), "Resources/Images")),
                 RequestPath = "/Resources/Images"
             });
+            app.UseStaticFiles();
+            app.UseDefaultFiles();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("index", "Fallback");
             });
         }
     }
