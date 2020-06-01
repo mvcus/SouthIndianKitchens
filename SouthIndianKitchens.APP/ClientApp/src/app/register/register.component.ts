@@ -1,6 +1,7 @@
 import { AuthService } from './../_services/auth.service';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { AlertifyService } from '../_services/alertify.service';
+import { FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,9 @@ import { AlertifyService } from '../_services/alertify.service';
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
+  @ViewChild("LoginForm", { static: false }) newForm: NgForm;
+
+
   constructor(private authservice: AuthService, private alertifyjs: AlertifyService) { }
 
   ngOnInit() { }

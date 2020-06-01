@@ -1,10 +1,10 @@
-<meta charset="utf-8">
+﻿<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand" href="#">&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</a>  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-  <span class="fa fa-phone">+00080088088</span> &nbsp;&nbsp;
-  <a href="mailto:southindiankitchens.com" class="fa fa-envelope"><span>&nbsp;southindiankitchens.com</span></a> &nbsp;&nbsp;
+  <!--<span class="fa fa-phone">+0008008808</span> &nbsp;&nbsp;
+  <a href="mailto:southindiankitchens.com" class="fa fa-envelope"><span>&nbsp;southindiankitchens.com</span></a> &nbsp;&nbsp;-->
   <ul class="navbar-nav mr-auto">
     <li *ngIf="loggedIn()" class="nav-item" routerLinkActive="active">
       <a class="nav-link" [routerLink]="['/admin']">Admin Panel<span class="sr-only">(current)</span></a>
@@ -14,9 +14,6 @@
     </li>
     <li *ngIf="loggedIn()" class="nav-item">
       <a class="nav-link" (click)="logout()">logout</a>
-    </li>
-    <li *ngIf="!loggedIn()" class="nav-item" routerLinkActive="active">
-      <a class="nav-link" [routerLink]="['/home']">Home<span class="sr-only">(current)</span></a>
     </li>
   </ul>
   <div *ngIf="loggedIn()" class="dropdown show ">
