@@ -26,6 +26,9 @@ import { ImageService } from './recpie/image.service';
 import { ReviewsComponent } from './reviews/reviews.compnent';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { UploadImageService } from './_services/upload-image.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +48,8 @@ import { UploadImageService } from './_services/upload-image.service';
     AboutusComponent,
     ImageDetailComponent,
     FilterimagesPipe,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserAnimationsModule,

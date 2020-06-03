@@ -34,6 +34,10 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\Edit\Edit.Component.specs.ts" />
     <None Remove="ClientApp\src\app\Edit\Edit.Component.ts" />
+    <None Remove="ClientApp\src\app\footer\footer.component.spec.ts" />
+    <None Remove="ClientApp\src\app\footer\footer.component.ts" />
+    <None Remove="ClientApp\src\app\header\header.component.spec.ts" />
+    <None Remove="ClientApp\src\app\header\header.component.ts" />
     <None Remove="ClientApp\src\app\routes.ts" />
     <None Remove="ClientApp\src\app\Upload\deleteVideoDetails.ts" />
     <None Remove="ClientApp\src\app\Upload\delteImageDetails.ts" />
@@ -50,6 +54,14 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\Edit\Edit.Component.specs.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Edit\Edit.Component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\footer\footer.component.spec.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\footer\footer.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\header\header.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\header\header.component.spec.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\routes.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Upload\deleteVideoDetails.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Upload\delteImageDetails.ts" />
