@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
+
 a {
   color: #0366d6;
 }
@@ -13,4 +14,251 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #0057ff;
+  color: #ffffff
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+h2, h4, h5, p {
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+}
+
+  h5 a {
+    color: #d64d4d !important;
+  }
+
+.et_pb_slider .et_pb_slide_0 {
+  background-color: #474e5d !important;
+  background-image: url('/southindiankitchens/southindiankitchens.app/images/homepagelogo.jpeg');
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  /*display: none;*/
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  right: 15px;
+  bottom: 15px;
+  background: #2fa1db;
+  color: #fff;
+  transition: display 0.5s ease-in-out;
+  z-index: 99999;
+}
+
+  .back-to-top i {
+    font-size: 24px;
+    position: absolute;
+    top: 7px;
+    left: 12px;
+  }
+
+  .back-to-top:hover {
+    color: #fff;
+    background: #86c0da;
+    transition: background 0.2s ease-in-out;
+  }
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #032638;
+  /* padding: 30px 0 30px 0; */
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-logo {
+  margin: auto;
+  text-align: center;
+  color: #2fa1db;
+}
+
+  .footer-logo img {
+    width: 115px;
+  }
+
+.footer-sec1 {
+  border-bottom: 1px solid #01c9f52b;
+  padding: 25px 0px;
+}
+
+  .footer-sec1 p {
+    font-size: 13px !important;
+    color: #ffffff85;
+  }
+
+  .footer-sec1 h5 {
+    font-size: 18px;
+  }
+
+#footer .copyright {
+  /* border-top: 1px solid #385b6b;
+  text-align: left; */
+  /* padding-top: 30px; */
+}
+
+#footer .credits {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+#footer .copyright span {
+  color: #2fa1db;
+}
+
+.d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.align-items-stretch {
+  -ms-flex-align: stretch !important;
+  align-items: stretch !important;
+}
+
+.flex-column {
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+}
+
+.justify-content-center {
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+}
+
+.img-width {
+  width: 100%;
+}
+
+.gray-bg {
+  background: #ebebeb;
+}
+
+.images-section {
+  position: relative;
+}
+
+  .images-section img {
+    width: 250px;
+  }
+
+  .images-section > .top-left {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+  .images-section > .centered-right {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(0%, -50%);
+  }
+
+  .images-section > .bottom-left {
+    position: absolute;
+    bottom: -74px;
+    left: 0px;
+  }
+
+  .images-section > .description p {
+    padding: 30px 40px;
+  }
+/* .features-para p{
+  color: #777;
+} */
+.features-para div {
+  margin-bottom: 30px;
+}
+
+.footer-section-para p {
+  text-align: left !important;
+}
+
+p {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.about-kitchen {
+  background-color: #232F3E !important;
+  color: white;
+}
+
+.et_pb_section a {
+  color: #0254AC !important;
+}
+
+ .et_pb_section a:hover {
+    color: #2FA1DB !important;
+    text-decoration: underline;
+  }
+
+.et_pb_newsletter {
+  padding: 4px !important;
+}
+
+.input {
+  width: 125% !important;
+  height: 50% !important;
+  font-size: 12px !important;
+}
+
+.et_pb_button {
+  font-size: 12px !important;
+}
+
+.somevideos {
+  width: 30% !important;
+}
+.some-classic {
+  padding-bottom: 10%;
+  font-size: 24px;
+}
+.readmore {
+  color: #0254AC !important;
+  font-weight: 400 !important;
+}
+.readmore-top{
+    padding-top: 15px !important;
+}
+#et-top-navigation {
+   float: none !important;
+}
+.about-section {
+  padding-top: 150px !important;
+}
+.receipes{
+    padding-top:150px;
+}
+.header {
+  margin-left: -150px;
+  margin-right: -150px;
+}
+.et_pb_section{
+    padding : 0px !important;
+}
+.tab-panel {
+  padding-top: 40px !important;
+}
+.btn {
+  margin-top: 20px !important;
+}
+img {
+  background-image: url('e:\projects\20200602\southindiankitchens.app\images\add-images.png');
+  background-repeat: no-repeat;
+  background-position: <left|right>;
 }
