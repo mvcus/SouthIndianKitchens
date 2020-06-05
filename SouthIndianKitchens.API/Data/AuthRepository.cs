@@ -21,9 +21,9 @@ namespace SouthIndianKitchens.API.Data
         public async Task<Users> Login(string username, string password)
         {
             //byte[] data = System.Text.UTF8Encoding.GetBytes(_context.User.passwordHash);
-
-            var user = await _context.User.FirstOrDefaultAsync(x=>x.Username ==username);
-           // var user = await _context.User.SingleOrDefaultAsync(x => x.Username == username);
+            
+            var user = await _context.User.FirstOrDefaultAsync(x => x.Username == username);
+            // var user = await _context.User.SingleOrDefaultAsync(x => x.Username == username);
             if (user == null)
                 return null;
             if (!verifyPasswordHash(password, user.passwordHash, user.PasswordSalt))
