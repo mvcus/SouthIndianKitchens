@@ -3,7 +3,7 @@
 /* Provide sufficient contrast against white background */
 
 a {
-  color: #0366d6;
+  color: white !important;
 }
 
 code {
@@ -199,7 +199,7 @@ p {
 }
 
 .et_pb_section a {
-  color: #0254AC !important;
+  color: White !important;
 }
 
  .et_pb_section a:hover {
@@ -257,8 +257,6 @@ p {
 .btn {
   margin-top: 20px !important;
 }
-img {
-  background-image: url('e:\projects\20200602\southindiankitchens.app\images\add-images.png');
-  background-repeat: no-repeat;
-  background-position: <left|right>;
+.image {
+  font-weight: bold !important;
 }
