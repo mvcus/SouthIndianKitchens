@@ -1,38 +1,123 @@
 
-<div class="receipes" id="top">
-  <div class="row">
-    <div class="col-sm-12 btn image">
-      Image Gallery
-    </div>
-  </div>
-  <div class="row" style="margin-top:10px;margin-bottom: 10px;">
-    <div class="col-sm-1">
-    </div>
-    <div class="col-sm-2">
-      <button class="btn btn-success" (click)="filterBy='all'">All</button>
-    </div>
-    <div class="col-sm-2">
-      <button class="btn btn-success" (click)="filterBy='Breakfast'">Breakfast</button>
-    </div>
-    <div class="col-sm-2">
-      <button class="btn btn-success" (click)="filterBy='Launch'">Launch</button>
-    </div>
-    <div class="col-sm-2">
-      <button class="btn btn-success" (click)="filterBy='Dinner'">Dinner</button>
-    </div>
-    <div class="col-sm-2">
-      <button class="btn btn-success" (click)="filterBy='Dinner'">FastFood</button>
+  <div class="receipes" id="top">
+    <div class="row">
+      <!--<div class="col-sm-12 btn image">
+      Our Receipes
+    </div>-->
     </div>
     <div class="row">
-      <ul>
-        <li *ngFor="let img of (allImages | filterimages:filterBy) ">
-          <a [routerLink]="['/image', img.id]">
-            <img src="assets/img/Recpie{{img.url}}" class="img" width="250" height="200">
-          </a>
-        </li>
-      </ul>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-success receipes-btn" (click)="filterBy='all'">All</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-success receipes-btn" (click)="filterBy='Breakfast'">Breakfast</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-success receipes-btn" (click)="filterBy='Launch'">Launch</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-success receipes-btn" (click)="filterBy='Dinner'">Dinner</button>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-success receipes-btn" (click)="filterBy='Dinner'">FastFood</button>
+      </div>
     </div>
-  </div>
-</div>
+    <div class="row top-buffer">
+      <div class="column">
+        <div class="card">
+          <!--<ul>
+          <li *ngFor="let img of (allImages | filterimages:filterBy) ">
+            <a [routerLink]="['/image', img.id]">
+              <img src="assets/img/Recpie{{img.url}}" class="img img-card" />
+            </a>
+          </li>
+        </ul-->
+          <img src="\assets\img\Recpie\bf1.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf2.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf3.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="row top-buffer">
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf4.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf5.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf6.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="row top-buffer">
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf7.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf8.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf9.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+      </div>
+    </div>
 
 

@@ -2,8 +2,8 @@
 
 /* Provide sufficient contrast against white background */
 
-a {
-  color: white !important;
+.et-fixed-header #top-menu li.current-menu-ancestor > a, .et-fixed-header #top-menu li.current-menu-item > a {
+  color: #000000 !important;
 }
 
 code {
@@ -242,7 +242,7 @@ p {
   padding-top: 150px !important;
 }
 .receipes{
-    padding-top:150px;
+    padding-top:50px;
 }
 .header {
   margin-left: -150px;
@@ -259,4 +259,50 @@ p {
 }
 .image {
   font-weight: bold !important;
+}
+.episodes {
+  width: 25% !important;
+  padding: 10px;
+}
+.img-card {
+  height: 200px;
+  object-fit: cover;
+}
+iframe {
+  height: 200px !important;
+}
+.receipes-btn {
+  background-color: #8F8F8F !important;
+  border-color: #8F8F8F !important;
+}
+#top-menu li.current-menu-item > a {
+  color: rgba(0,0,0,.6) !important;
+}
+.episode-row {
+  padding: 50px;
+}
+.episode-container {
+  padding-top: 20px;
+}
+.menu {
+  padding-top: 50px;
+}
+.logo-width{
+   width: 120px;
+}
+#top-menu li a, .et_search_form_container input {
+  color: #000;
+  font-weight: bold;
+  font-style: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-family: 'Libre Baskerville',Georgia,"Times New Roman",serif;
+}
+.menu-style {
+  padding-left: 215px !important;
+}
+.top-buffer {
+  padding: 30px;
+  margin-left: 50px !important;
 }
