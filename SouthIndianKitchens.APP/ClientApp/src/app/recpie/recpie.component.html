@@ -28,13 +28,24 @@
       <div class="column">
         <div class="card">
           <!--<ul>
-          <li *ngFor="let img of (allImages | filterimages:filterBy) ">
-            <a [routerLink]="['/image', img.id]">
-              <img src="assets/img/Recpie{{img.url}}" class="img img-card" />
-            </a>
-          </li>
-        </ul-->
-          <img src="\assets\img\Recpie\bf1.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+    <li *ngFor="let img of (allImages | filterimages:filterBy) ">
+      <a [routerLink]="['/image', img.id]">
+        <img src="assets/img/Recpie{{img.url}}" class="img img-card" />
+      </a>
+    </li>
+  </ul-->
+          <img src="\assets\img\Recpie\bf1.jpg" alt="Jane" class="img img-card">
+          <div class="recipe_label" id="label_">Lava Cake Recipe</div>
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf2.jpg" alt="Jane" class="img img-card">
+          <div class="recipe_label" id="label_">Lava Cake Recipe</div><!--xonclick="goURL('https://www.kindmeal.my/Chocolate/recipe-1039454.htm');"-->
         </div>
         <div class="container">
           <p>Some text that describes me lorem ipsum ipsum lorem.</p>
@@ -43,45 +54,8 @@
       </div>
       <div class="column">
         <div class="card">
-          <img src="\assets\img\Recpie\bf2.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf3.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="row top-buffer">
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf4.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf5.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf6.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+          <img src="\assets\img\Recpie\bf3.jpg" alt="Jane" class="img img-card">
+          <div class="recipe_label" id="label_">Lava Cake Recipe</div>
         </div>
         <div class="container">
           <p>Some text that describes me lorem ipsum ipsum lorem.</p>
@@ -92,7 +66,8 @@
     <div class="row top-buffer">
       <div class="column">
         <div class="card">
-          <img src="\assets\img\Recpie\bf7.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+          <img src="\assets\img\Recpie\bf4.jpg" alt="Jane" class="img img-card">
+          <div class="recipe_label" id="label_">Lava Cake Recipe</div>
         </div>
         <div class="container">
           <p>Some text that describes me lorem ipsum ipsum lorem.</p>
@@ -101,7 +76,8 @@
       </div>
       <div class="column">
         <div class="card">
-          <img src="\assets\img\Recpie\bf8.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+          <img src="\assets\img\Recpie\bf5.jpg" alt="Jane" class="img img-card">
+          <div class="recipe_label" id="label_">Lava Cake Recipe</div>
         </div>
         <div class="container">
           <p>Some text that describes me lorem ipsum ipsum lorem.</p>
@@ -110,7 +86,40 @@
       </div>
       <div class="column">
         <div class="card">
-          <img src="\assets\img\Recpie\bf9.jpg" alt="Jane" class="img img-card" onclick="OpenReceipes()">
+          <img src="\assets\img\Recpie\bf6.jpg" alt="Jane" class="img img-card">
+          <div class="recipe_label" id="label_">Lava Cake Recipe</div>
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="row top-buffer">
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf7.jpg" alt="Jane" class="img img-card">
+          <div class="recipe_label" id="label_">Lava Cake Recipe</div>
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf8.jpg" alt="Jane" class="img img-card">
+          <div class="recipe_label" id="label_">Lava Cake Recipe</div>
+        </div>
+        <div class="container">
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p><button class="button">View</button></p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <img src="\assets\img\Recpie\bf9.jpg" alt="Jane" class="img img-card">
+          <div class="recipe_label" id="label_">Lava Cake Recipe</div>
         </div>
         <div class="container">
           <p>Some text that describes me lorem ipsum ipsum lorem.</p>
