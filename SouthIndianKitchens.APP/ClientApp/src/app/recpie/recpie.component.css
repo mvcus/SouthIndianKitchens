@@ -4,11 +4,9 @@
   box-shadow: rgb(224, 199, 199) 1px 1px 8px 1px;
   cursor: pointer
 }
-
-.modal-content {
-  width: 1000px !important;
+.modal-backdrop.in {
+  opacity: 0.9;
 }
-
 ul {
   padding: 0;
   width: 1200px;
@@ -243,4 +241,26 @@ ul.tt-socail {
   text-transform: none;
   color: #fff;
   text-align: center;
+}
+.modal-header {
+  display: block !important;
+}
+.container {
+  padding-top: 20px;
+}
+.column-popup {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row-popup:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ul{
+    margin-left: 1px !important;
 }
