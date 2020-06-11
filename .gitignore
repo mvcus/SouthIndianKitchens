@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/SouthIndianKitchens.APP/Images
+/SouthIndianKitchens.APP/ClientApp/src/css/bootstrap.min.css

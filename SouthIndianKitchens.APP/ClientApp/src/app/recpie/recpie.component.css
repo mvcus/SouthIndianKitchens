@@ -4,16 +4,14 @@
   box-shadow: rgb(224, 199, 199) 1px 1px 8px 1px;
   cursor: pointer
 }
-
-.modal-content {
-  width: 1000px !important;
+.modal-backdrop.in {
+  opacity: 0.9;
 }
-
 ul {
   padding: 0;
   width: 1200px;
   margin: 20px auto;
-  margin-left: 80px
+  margin-left: 125px;
 }
 
 li {
@@ -212,4 +210,57 @@ ul.tt-socail {
 
 .tt-copy-right {
   text-align: right;
+}
+
+/*================= Banner ==============*/
+
+.image-aboutus-banner {
+  /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/556962/pexels-photo-556962.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");*/
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/img/Recipes.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.image-aboutus-sm-banner {
+  /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/631008/pexels-photo-631008.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");*/
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/img/Recipes.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.lg-text {
+  font-weight: 600;
+  text-transform: none;
+  color: #fff;
+  text-align: center;
+}
+.modal-header {
+  display: block !important;
+}
+.container {
+  padding-top: 20px;
+}
+.column-popup {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row-popup:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ul{
+    margin-left: 1px !important;
 }

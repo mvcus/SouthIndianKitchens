@@ -13,6 +13,16 @@ export class RecpieComponent implements OnChanges {
   filterBy?: string = 'all';
   allImages: any[] = [];
 
+  showModal: boolean;
+  show() {
+    this.showModal = true; // Show-Hide Modal Check
+
+  }
+  //Bootstrap Modal Close event
+  hide() {
+    this.showModal = false;
+  }
+
   constructor(private imageService: ImageService) {
     this.allImages = this.imageService.getImages();
   }
