@@ -8,8 +8,8 @@
 }
 
 .image-aboutus-banner {
-  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/556962/pexels-photo-556962.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
-  /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(".\\Images\\HomePageLogo.jpeg");*/
+  /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/556962/pexels-photo-556962.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");*/
+  background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/assets/img/AboutUs/cover-pic.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -19,8 +19,8 @@
 }
 
 .image-aboutus-sm-banner {
-  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/631008/pexels-photo-631008.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
-  /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(".\\Images\\HomePageLogo.jpeg");*/
+  /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/631008/pexels-photo-631008.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");*/
+  background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/assets/img/AboutUs/cover-pic.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -30,7 +30,6 @@
 }
 
 .lg-text {
-  font-size: 52px;
   font-weight: 600;
   text-transform: none;
   color: #fff;

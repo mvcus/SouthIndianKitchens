@@ -373,3 +373,29 @@ ul.tt-socail {
 .tt-copy-right {
   text-align: right;
 }
+.image-aboutus-banner {
+  /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/556962/pexels-photo-556962.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");*/
+  background-image: linear-gradient(rgba(0,0,0,-0.3), rgba(0,0,0,-0.3)), url('/assets/img/AboutUs/cover-pic.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+.image-aboutus-sm-banner {
+  /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/631008/pexels-photo-631008.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");*/
+  background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/assets/img/AboutUs/cover-pic.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.lg-text {
+  font-weight: 600;
+  text-transform: none;
+  color: #fff;
+  text-align: center;
+}
