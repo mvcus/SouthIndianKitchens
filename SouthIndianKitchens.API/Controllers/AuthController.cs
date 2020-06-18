@@ -212,5 +212,13 @@ namespace SouthIndianKitchens.API.Controllers
                 token = tokenHandler.WriteToken(token)
             });
         }
+
+        [HttpGet]
+        [Route("getSocialMediaLinks")]
+        public async Task<IActionResult> GetgetSocialMediaLinks()
+        {
+            var values = await _repo.getSocialMediaLinks();
+            return Ok(values);
+        }
     }
 }
