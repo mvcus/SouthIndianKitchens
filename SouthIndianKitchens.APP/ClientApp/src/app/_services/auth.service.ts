@@ -40,10 +40,13 @@ login(model: any)
     return this.http.delete(this.baseUrl + 'DeleteVideo/' + model);
   }
   
-register(model: any){
+  register(model: any) {
+    debugger;
   return this.http.post(this.baseUrl + 'register', model);
-}
-
+  }
+  emailsubscribe(model: any) {
+    return this.http.post(this.baseUrl + '', model);
+  }
   loggedIn() {
     const token = localStorage.getItem('token');
     return !!token;

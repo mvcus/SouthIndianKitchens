@@ -37,22 +37,22 @@
         <button class="btn btn-success receipes-btn" (click)="filterBy='Dinner'">FastFood</button>
       </div>
     </div>
+    <ul>
+      <li *ngFor="let img of (allImages | filterimages:filterBy) ">
+        <a [routerLink]="['/image', img.id]">
+          <img src="assets/img/Recpie{{img.url}}" class="img img-card" />
+        </a>
+      </li>
+    </ul>
     <div class="row top-buffer">
       <div class="column">
         <div class="card">
-          <!--<ul>
-    <li *ngFor="let img of (allImages | filterimages:filterBy) ">
-      <a [routerLink]="['/image', img.id]">
-        <img src="assets/img/Recpie{{img.url}}" class="img img-card" />
-      </a>
-    </li>
-  </ul-->
           <img src="\assets\img\Recpie\bf1.jpg" alt="Jane" class="img img-card">
           <div class="recipe_label" id="label_">Recipe</div>
         </div>
         <div class="container">
           <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <span class="glyphicon glyphicon-eye-open"></span>
+          <p><button class="button">View</button></p>
         </div>
       </div>
       <div class="column">
@@ -139,7 +139,7 @@
           <p><button class="button">View</button></p>
         </div>
       </div>
-      </div>
     </div>
+  </div>
 
 

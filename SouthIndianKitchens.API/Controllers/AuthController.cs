@@ -16,12 +16,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SouthIndianKitchens.API.Controllers
 {
-   
+
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
-        
+
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
         public AuthController(IAuthRepository repo, IConfiguration config)
@@ -79,7 +79,7 @@ namespace SouthIndianKitchens.API.Controllers
         }
 
 
-        
+
 
         [HttpPost]
         [Route("SaveVideoUrl")]
@@ -101,23 +101,23 @@ namespace SouthIndianKitchens.API.Controllers
             return Ok(values);
         }
 
-       [HttpPut]
-       [Route("EditImage")]
-       public async Task<IActionResult>EditImage(UploadImage imageUploadDto)
+        [HttpPut]
+        [Route("EditImage")]
+        public async Task<IActionResult> EditImage(UploadImage imageUploadDto)
         {
             var editImage = new UploadImage
             {
                 ImgPath = imageUploadDto.ImgPath,
-                Id= imageUploadDto.Id,
-                Address =imageUploadDto.Address,
-                Name=imageUploadDto.Name                                
+                Id = imageUploadDto.Id,
+                Address = imageUploadDto.Address,
+                Name = imageUploadDto.Name
             };
             var createImage = await _repo.EditImage(editImage);
             return StatusCode(201);
         }
         [HttpDelete]
         [Route("DeleteImage/{deleteImageID}")]
-        public async Task<int>DeleteImage(int deleteImageID)
+        public async Task<int> DeleteImage(int deleteImageID)
         {
             var deleteImage = new UploadImage
             {
@@ -181,6 +181,21 @@ namespace SouthIndianKitchens.API.Controllers
             var createdUser = await _repo.Register(userToCreate, userForRegistrationDto.Password);
             return StatusCode(201);
         }
+       
+        [HttpPost("emailsubscribe")]
+        public async Task<IActionResult>SubscribeEmail(EmailSubscribeDto emailSubscribeDto)
+        {
+            emailSubscribeDto.EmailId = emailSubscribeDto.EmailId.ToLower();
+            if (await _repo.UserExist(emailSubscribeDto.EmailId))
+                return BadRequest("Email Id already Exists");
+            var subscribeToCreate = new EmailSubscribe
+            {
+                SubscriberEmail = emailSubscribeDto.EmailId
+            };
+            var createdSubscriber = await _repo.SubscribeEmail(subscribeToCreate, emailSubscribeDto.EmailId);
+            return StatusCode(201);
+        }
+
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)

@@ -56,6 +56,13 @@ namespace SouthIndianKitchens.API.Data
             return user;
 
         }
+        public async Task<EmailSubscribe>Subscribe(EmailSubscribe email,string EmailId)
+        {
+            email.SubscriberEmail =EmailId;
+            await _context.EmailSubscribes.AddAsync(email);
+            await _context.SaveChangesAsync();
+            return email;
+        }
 
         public async Task<UploadImage> AddImage(UploadImage uploadImage , string name, string address,string path)
         {
