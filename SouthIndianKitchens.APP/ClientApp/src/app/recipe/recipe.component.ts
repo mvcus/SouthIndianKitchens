@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ImageService } from './image.service';
 import { HttpClient } from '@angular/common/http';
+declare const myTest: any;
 
 
 @Component({
@@ -9,11 +10,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./recpie.component.css']
 })
 
-export class RecpieComponent implements OnChanges {
+export class RecipeComponent implements OnChanges {
   image: any[];
   filterBy?: string = 'all';
   allImages: any[] = [];
-
+  recipePath = null;
   showModal: boolean;
   show() {
     this.showModal = true; // Show-Hide Modal Check
@@ -34,4 +35,8 @@ export class RecpieComponent implements OnChanges {
   //public myfunction(message: string) {
   //  alert(message);
   //}
+
+  onClick(recipePath) {
+    this.recipePath = recipePath;
+  }
 }

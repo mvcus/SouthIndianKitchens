@@ -1,0 +1,128 @@
+<div class="et_pb_section et_pb_section_0 et_section_regular image-aboutus-banner">
+  <div class="et_pb_row et_pb_row_0">
+    <div class="" style="height:200px">
+      <div class="container">
+        <div class="row" style="padding-top: 50px;">
+          <div class="col-md-12">
+            <h1 class="lg-text">Our Recipes</h1>
+            <p class="image-aboutus-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="receipes" id="top">
+  <div class="row">
+    <!--<div class="col-sm-12 btn image">
+      Our Receipes
+    </div>-->
+  </div>
+
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='all'">All</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='Breakfast'">Breakfast</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='Launch'">Launch</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='Dinner'">Dinner</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='FastFood'">FastFood</button>
+    </div>
+  </div>
+
+  <div class="row top-buffer">
+    <div class="column">
+      <div class="card">
+        <ul class="img-ul">
+          <li *ngFor="let img of (allImages | filterimages:filterBy) ">
+            <a>
+              <!--[routerLink]="['/image', img.id]"-->
+              <img id="myImage" src="assets/img/Recpie{{img.url}}" class="img img-card" data-title="View the Recipe" data-toggle="modal" data-target="#gardenImage" data-id="5.jpg" (click)="onClick('assets/img/Recpie'+img.url)" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <form>
+    <div class="modal fade" id="gardenImage" tabindex="-1" role="dialog" aria-labelledby="gardenImageLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h2>Recipe - Details</h2>
+
+            <div class="popup-row">
+              <div class="popup-column">
+                <img id="myImage" class="img img-card" src="{{recipePath}}" alt="" />
+              </div>
+              <div class="popup-column">
+                <h4 style="text-align:left">Ingredients</h4>
+                <ul>
+                  <li class="ingredients">1 cup wheat flour</li>
+                  <li class="ingredients">1/2 cup buckwheat flour</li>
+                  <li class="ingredients">1 tbsp psyllium husk</li>
+                  <li class="ingredients">1 tbsp flax meal</li>
+                  <li class="ingredients">3 tbsp warm water</li>
+                  <li class="ingredients">1 tsp Instant yeast</li>
+                  <li class="ingredients">2 tbsp shallots/ small onion measure chopped</li>
+                  <li class="ingredients">2 tbsp coriander leaves measure chopped</li>
+                  <li class="ingredients">1 green chilli chopped</li>
+                  <li class="ingredients">1/4 cup milk</li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              Instructions
+              Mix flax meal with 3 tbsp warm water and set aside for 15 mins.
+              In a mixing bowl, add all wet ingredients. Top it with the other dry ingredients.
+              I used my bread maker for kneading. It takes about 15 mins. You can hand knead well for 10 mins.
+              Once you have the dough, grease a bowl with oil and grease the dough surface. Cling wrap and set aside for an hour for rising.
+              After 1 hr, knead again to smooth. Divide to equal sized portions.
+              Roll into small balls. Grease a pan with oil/ butter. Dust with some flour.
+              Place the rolled dough in it and cover it for second rise. (10-15 mins)You can preheat the oven until then at 190 deg C.
+              Brush the top with milk to cover the surface. Bake for 15-18 mins.
+              Once done, brush generously with butter.Cool over wire rack. Enjoy warm.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger center-block" data-dismiss="modal">close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Create two equal columns that floats next to each other */
+  .popup-column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+  /* Clear floats after the columns */
+  .popup-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .ingredients{
+    display:block;
+  }
+</style>
+

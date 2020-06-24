@@ -148,4 +148,9 @@
   }
   aos_init();
 
+  $(document).on("click", ".openImageDialog", function () {
+    var myImageId = $(this).data('id');
+    $(".modal-body #myImage").attr("src", myImageId);
+  });
+
 })(jQuery);

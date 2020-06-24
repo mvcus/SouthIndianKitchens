@@ -3,12 +3,13 @@ import { userToCreate } from './_Interfaces/userToCreate.model';
 import { User } from './_Interfaces/user.model';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from "@angular/router";
+import { Router, NavigationStart  } from "@angular/router";
 
 
 @Component({
   selector: 'app-root',
   template: '<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer>',
+  //template: '<app-header *ngIf="showHead"></app-header><router-outlet></router-outlet><app-footer *ngIf="showFoot"></app-footer>',
   //templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -19,9 +20,22 @@ export class AppComponent {
   public address: string;
   public user: userToCreate;
   public users: User[] = [];
+  showHead: boolean = false;
+  showFoot: boolean = false;
 
-
-  constructor(private http: HttpClient, public router: Router) { }
+  constructor(private http: HttpClient, public router: Router) {
+    router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        if (event['url'] == '/login') {
+          this.showHead = false;
+          this.showFoot = false;
+        } else {
+          // console.log("NU")
+          this.showHead = true;
+        }
+      }
+    });
+  }
 
   ngOnInit() {
     this.isCreate = true;

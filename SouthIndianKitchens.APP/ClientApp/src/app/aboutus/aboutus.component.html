@@ -133,15 +133,24 @@
       </tr>
     </tbody>
   </table>-->
-        <div class="social-icons">
-          <div *ngFor="let medialinks of socialMediaLinks">
-            <div *ngIf="(medialinks.name == 'Facebook')"><a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a></div>
-            <div *ngIf="(medialinks.name == 'Twitter')"><a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a></div>
-            <div *ngIf="(medialinks.name == 'Google')"><a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a></div>
-            <div *ngIf="(medialinks.name == 'Gmail')"><a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a></div>
-            <div *ngIf="(medialinks.name == 'Youtube')"><a href="https://www.youtube.com/"><i id="social-em" class="fa fa-youtube fa-3x social"></i></a></div>
-          </div>
-        </div>
+      <div class="social-icons">
+       <!--<div *ngFor="let medialinks of socialMediaLinks">
+    <div *ngIf="(medialinks.name == 'Facebook')"><a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a></div>
+    <div *ngIf="(medialinks.name == 'Twitter')"><a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a></div>
+    <div *ngIf="(medialinks.name == 'Google')"><a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a></div>
+    <div *ngIf="(medialinks.name == 'Gmail')"><a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a></div>
+    <div *ngIf="(medialinks.name == 'Youtube')"><a href="https://www.youtube.com/"><i id="social-em" class="fa fa-youtube fa-3x social"></i></a></div>
+  </div>-->
+        <!-- TT-SOCAIL -->
+       <ul class="tt-socail" *ngFor="let medialinks of socialMediaLinks">
+          <li *ngIf="(medialinks.name == 'Facebook')"><a href="#"><i class="fa fa-facebook-square fa-3x social" aria-hidden="true"></i></a></li>
+          <li *ngIf="(medialinks.name == 'Twitter')"><a href="#"><i class="fa fa-twitter-square fa-3x social" aria-hidden="true"></i></a></li>
+          <li *ngIf="(medialinks.name == 'Google')"><a href="#"><i class="fa fa-google-plus-square fa-3x social" aria-hidden="true"></i></a></li>
+          <li *ngIf="(medialinks.name == 'Gmail')"><a href="#"><i class="fa fa-envelope-square fa-3x social" aria-hidden="true"></i></a></li>
+          <li *ngIf="(medialinks.name == 'Youtube')"><a href="#"><i class="fa fa-youtube-square fa-3x social" aria-hidden="true"></i></a></li>
+          <li *ngIf="(medialinks.name == 'LinkedIn')"><a href="#"><i class="fa fa-linkedin-square fa-3x social" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
       </div>
       <div class="col-md-3 footer-two">
         <h5>Information </h5>

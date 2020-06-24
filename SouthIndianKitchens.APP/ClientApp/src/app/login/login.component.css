@@ -1,8 +1,51 @@
-.login-form {
+/*.login-form {
   width: 25%;
   margin: 0 auto;
   padding: 20px;
-}
+}*/
 .navbar navbar-expand-md navbar-dark bg-dark {
   display: none;
+}
+.background {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity: 1;
+  background-color: #000000;
+  background-image: linear-gradient(to left, rgba(0,0,0,0.25), rgba(0,0,0,0.25)),url(/assets/img/signup-background.jpg) !important;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  padding: 25px;
+  background-size: cover;
+}
+.form-control {
+  width: 20%;
+  margin-left: 40%;
+  height: calc(1.5em + 0.75rem + 10px);
+  padding: 10px;
+}
+.login {
+  font-size: 15px;
+  color: #4e4e4e;
+  text-decoration: none;
+  padding: 10px;
+  /* border-style: solid; */
+  /* border-color: white; */
+  /* border-width: 2px; */
+  font-family: Muli,sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+}
+.login:hover {
+  text-decoration:underline;
+}
+.btn {
+    margin-top:0px !important;
+    background-color: transparent!important;
+}
+.alert {
+  margin-left: 40% !important;
+}
+.adminlogin{
+    color:white !important;
 }

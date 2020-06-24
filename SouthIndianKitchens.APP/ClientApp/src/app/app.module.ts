@@ -19,10 +19,10 @@ import { SafeUrlPipe } from './safe-url.pipe';
 import { ImageSliderComponent } from './imageslider/imageslider.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { ImageDetailComponent } from './recpie/Recpie-Details.component';
-import { FilterimagesPipe } from './recpie/filterrecpie.pipe';
-import { RecpieComponent } from './recpie/recpie.component';
-import { ImageService } from './recpie/image.service';
+import { ImageDetailComponent } from './recipe/Recpie-Details.component';
+import { FilterimagesPipe } from './recipe/filterrecpie.pipe';
+import { RecipeComponent } from './recipe/recipe.component';
+import { ImageService } from './recipe/image.service';
 import { ReviewsComponent } from './reviews/reviews.compnent';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { UploadImageService } from './_services/upload-image.service';
@@ -43,7 +43,7 @@ import { FooterComponent } from './footer/footer.component';
     EpisodeComponent,
     SafeUrlPipe,
     ImageSliderComponent,
-    RecpieComponent,
+    RecipeComponent,
     ReviewsComponent,
     AboutusComponent,
     ImageDetailComponent,
@@ -68,4 +68,4 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule { }  
