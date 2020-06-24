@@ -214,7 +214,7 @@ export class UploadComponent implements OnInit {
 
     this.http.post(this.authservice.baseUrl + 'SaveVideoUrl', this.videoToCreate)
       .subscribe(res => {
-        this.getImages();
+          this.getVideosUrl();
         this.isCreate1 = false;
         this.alertifyjs.message("Video URL saved Successfully");
       });

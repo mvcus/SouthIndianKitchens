@@ -265,7 +265,9 @@ p {
   padding: 10px;
 }
 .img-card {
-  height: 200px;
+  /*float: left;*/
+  width: 280px;
+  height: 280px;
   object-fit: cover;
 }
 iframe {
@@ -332,4 +334,7 @@ iframe {
   -moz-opacity: 0.5; /* Netscape */
   -khtml-opacity: 0.5; /* Safari 1.x */
   opacity: 1; /* Good browsers */
+}
+.img-ul {
+  padding-left: 15px !important;
 }

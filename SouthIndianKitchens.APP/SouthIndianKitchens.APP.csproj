@@ -16,11 +16,14 @@
     <StartupObject />
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="IdentityModel" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0-preview-19075-0444" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0-preview.2.20159.4" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.112" />
   </ItemGroup>
 
@@ -44,9 +47,11 @@
     <None Remove="ClientApp\src\app\Upload\editImageList.ts" />
     <None Remove="ClientApp\src\app\Upload\editVideoList.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\imageToDelete.ts" />
+    <None Remove="ClientApp\src\app\_Interfaces\socialMediaLinks.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\user.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
+    <None Remove="ClientApp\src\app\_services\sociallinks.service.ts" />
     <None Remove="routes.ts" />
     <None Remove="styles\et-core-unified-13-15864520477412.min.css" />
   </ItemGroup>
@@ -68,9 +73,11 @@
     <TypeScriptCompile Include="ClientApp\src\app\Upload\editVideoList.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Upload\editImageList.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\imageToDelete.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\socialMediaLinks.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\user.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_services\sociallinks.service.ts" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,8 +10,8 @@ using SouthIndianKitchens.API.Data;
 namespace SouthIndianKitchens.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200506160710_UploadVideoURL")]
-    partial class UploadVideoURL
+    [Migration("20200618192332_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,24 @@ namespace SouthIndianKitchens.API.Migrations
                 .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("SouthIndianKitchens.API.Model.SocialMediaLinks", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("Logo")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SocialMediaLinks");
+                });
 
             modelBuilder.Entity("SouthIndianKitchens.API.Model.UploadImage", b =>
                 {

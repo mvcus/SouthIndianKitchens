@@ -63,4 +63,7 @@ login(model: any)
   getVideoUrl() {
     return this.http.get(this.baseUrl + 'getVideoUrl');
   }
+  getSocialMediaLinks() {
+    return this.http.get(this.baseUrl + 'getSocialMediaLinks');
+  }
 }

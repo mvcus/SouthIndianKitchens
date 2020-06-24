@@ -1,145 +1,82 @@
-  <div class="et_pb_section et_pb_section_0 et_section_regular image-aboutus-banner">
-    <div class="et_pb_row et_pb_row_0">
-      <div class="" style="height:200px">
-        <div class="container">
-          <div class="row" style="padding-top: 50px;">
-            <div class="col-md-12">
-              <h1 class="lg-text">Our Recipes</h1>
-              <p class="image-aboutus-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
+<div class="et_pb_section et_pb_section_0 et_section_regular image-aboutus-banner">
+  <div class="et_pb_row et_pb_row_0">
+    <div class="" style="height:200px">
+      <div class="container">
+        <div class="row" style="padding-top: 50px;">
+          <div class="col-md-12">
+            <h1 class="lg-text">Our Recipes</h1>
+            <p class="image-aboutus-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="receipes" id="top">
-    <div class="row">
-      <!--<div class="col-sm-12 btn image">
+</div>
+<div class="receipes" id="top">
+  <div class="row">
+    <!--<div class="col-sm-12 btn image">
       Our Receipes
     </div>-->
+  </div>
+
+  <div class="row">
+    <div class="col-sm-1">
     </div>
-    <div class="row">
-      <div class="col-sm-1">
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-success receipes-btn" (click)="filterBy='all'">All</button>
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-success receipes-btn" (click)="filterBy='Breakfast'">Breakfast</button>
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-success receipes-btn" (click)="filterBy='Launch'">Launch</button>
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-success receipes-btn" (click)="filterBy='Dinner'">Dinner</button>
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-success receipes-btn" (click)="filterBy='Dinner'">FastFood</button>
-      </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='all'">All</button>
     </div>
-    <ul>
-      <li *ngFor="let img of (allImages | filterimages:filterBy) ">
-        <a [routerLink]="['/image', img.id]">
-          <img src="assets/img/Recpie{{img.url}}" class="img img-card" />
-        </a>
-      </li>
-    </ul>
-    <div class="row top-buffer">
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf1.jpg" alt="Jane" class="img img-card">
-          <div class="recipe_label" id="label_">Recipe</div>
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf2.jpg" alt="Jane" class="img img-card">
-          <div class="recipe_label" id="label_">Recipe</div><!--xonclick="goURL('https://www.kindmeal.my/Chocolate/recipe-1039454.htm');"-->
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf3.jpg" alt="Jane" class="img img-card">
-          <div class="recipe_label" id="label_">Recipe</div>
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='Breakfast'">Breakfast</button>
     </div>
-    <div class="row top-buffer">
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf4.jpg" alt="Jane" class="img img-card">
-          <div class="recipe_label" id="label_">Recipe</div>
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf5.jpg" alt="Jane" class="img img-card">
-          <div class="recipe_label" id="label_">Recipe</div>
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf6.jpg" alt="Jane" class="img img-card">
-          <div class="recipe_label" id="label_">Recipe</div>
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='Launch'">Launch</button>
     </div>
-    <div class="row top-buffer">
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf7.jpg" alt="Jane" class="img img-card">
-          <div class="recipe_label" id="label_">Recipe</div>
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf8.jpg" alt="Jane" class="img img-card">
-          <div class="recipe_label" id="label_">Recipe</div>
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="\assets\img\Recpie\bf9.jpg" alt="Jane" class="img img-card">
-          <div class="recipe_label" id="label_">Recipe</div>
-        </div>
-        <div class="container">
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">View</button></p>
-        </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='Dinner'">Dinner</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-success receipes-btn" (click)="filterBy='FastFood'">FastFood</button>
+    </div>
+  </div>
+
+  <div class="row top-buffer">
+    <div class="column">
+      <div class="card">
+        <ul class="img-ul">
+          <li *ngFor="let img of (allImages | filterimages:filterBy) ">
+            <a>
+              <!--[routerLink]="['/image', img.id]"-->
+              <img id="myRecipe" src="assets/img/Recpie{{img.url}}" class="img img-card" />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 
+  <!--<img class="thumbnail mini-thumb" src="http://www.planwallpaper.com/static/images/Winter-Tiger-Wild-Cat-Images.jpg" width="200" data-def-dd="pic" id="pic" name="pic" data-bigpic="http://www.planwallpaper.com/static/images/Winter-Tiger-Wild-Cat-Images.jpg" />
+
+  <div id="img_modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <img class="img-thumbnail" src="" id="photo_modal" name="photo">
+      </div>
+    </div>
+  </div>-->
+
+</div>
+<script>
+  //$(document).ready(function () {
+  //  loadPreviews();
+
+  //});
+
+  //function loadPreviews() {
+  //  $(".mini-thumb").on('click', function () {
+  //    console.log("Img url " + $(this).data('bigpic'));
+  //    $("#photo_modal").attr("src", $(this).data('bigpic'));
+  //    $("#img_modal").modal("show");
+  //  });
+  //}
+</script>
 

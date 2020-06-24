@@ -186,6 +186,11 @@ namespace SouthIndianKitchens.API.Data
             return UploadVideoUrl;
         }
 
+        public async Task<IEnumerable<SocialMediaLinks>> getSocialMediaLinks()
+        {
+            var socialMediaLinks = await _context.SocialMediaLinks.ToListAsync();
+            return socialMediaLinks;
+        }
 
         //public Task<UploadImage> EditImage(UploadImage addIMage, string name, string address, string path)
         //{

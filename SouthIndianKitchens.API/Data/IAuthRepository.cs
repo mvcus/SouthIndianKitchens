@@ -31,6 +31,8 @@ namespace SouthIndianKitchens.API.Data
         Task<System.Collections.Generic.IEnumerable<UploadImage>> getImages();
 
         Task<System.Collections.Generic.IEnumerable<UploadVideoURL>> getVideoUrl();
-        
+
+        Task<System.Collections.Generic.IEnumerable<SocialMediaLinks>> getSocialMediaLinks();
+
     }
 }

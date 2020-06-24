@@ -19,20 +19,22 @@ namespace SouthIndianKitchens.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SouthIndianKitchens.API.Model.EmailSubscribe", b =>
+            modelBuilder.Entity("SouthIndianKitchens.API.Model.SocialMediaLinks", b =>
                 {
-                    b.Property<int>("EmailId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("SubscriberEmail")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                    b.Property<byte[]>("Logo")
+                        .HasColumnType("varbinary(max)");
 
-                    b.HasKey("EmailId");
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("EmailSubscribe");
+                    b.HasKey("Id");
+
+                    b.ToTable("SocialMediaLinks");
                 });
 
             modelBuilder.Entity("SouthIndianKitchens.API.Model.UploadImage", b =>

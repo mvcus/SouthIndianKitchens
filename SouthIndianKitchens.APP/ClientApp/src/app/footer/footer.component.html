@@ -246,11 +246,15 @@
             </form>
             <div class="empty-space marg-lg-b30"></div>
             <!-- TT-SOCAIL -->
-            <ul class="tt-socail">
-              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <ul class="tt-socail" *ngFor="let medialinks of socialMediaLinks">
+              <li *ngIf="(medialinks.name == 'Facebook')"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li *ngIf="(medialinks.name == 'linkedin')"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+              <li *ngIf="(medialinks.name == 'twitter')"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li *ngIf="(medialinks.name == 'google-plus')"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+              <!--<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>-->
             </ul>
           </div>
         </div>
