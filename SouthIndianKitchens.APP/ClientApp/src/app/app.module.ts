@@ -49,7 +49,7 @@ import { FooterComponent } from './footer/footer.component';
     ImageDetailComponent,
     FilterimagesPipe,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserAnimationsModule,

@@ -8,8 +8,9 @@ import { Router, NavigationStart  } from "@angular/router";
 
 @Component({
   selector: 'app-root',
-  template: '<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer>',
-  //template: '<app-header *ngIf="showHead"></app-header><router-outlet></router-outlet><app-footer *ngIf="showFoot"></app-footer>',
+  //template: '<app-header></app-header><router-outlet></router-outlet><app-footer *ngIf="showFoot"></app-footer>',
+  template: '<app-header *ngIf="showHead"></app-header><router-outlet></router-outlet><app-footer *ngIf="showFoot"></app-footer>',
+  //template: '<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer>',
   //templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -26,12 +27,13 @@ export class AppComponent {
   constructor(private http: HttpClient, public router: Router) {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
-        if (event['url'] == '/login') {
+        if ( (event['url'] == '/login') || (event['url'] == '/register')) {
           this.showHead = false;
           this.showFoot = false;
         } else {
           // console.log("NU")
           this.showHead = true;
+          this.showFoot = true;
         }
       }
     });

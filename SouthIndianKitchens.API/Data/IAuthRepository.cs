@@ -32,5 +32,7 @@ namespace SouthIndianKitchens.API.Data
 
         Task<System.Collections.Generic.IEnumerable<SocialMediaLinks>> getSocialMediaLinks();
 
+        Task<UserSubscription> SendEmail(UserSubscription userSubscription, string Email);
+
     }
 }

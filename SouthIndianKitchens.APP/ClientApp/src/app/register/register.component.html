@@ -1,37 +1,41 @@
-<form #registerForm="ngForm" (ngSubmit)="register()" class="background">
+<form #registerForm="ngForm" (ngSubmit)="register()" class="background" style="overflow:hidden">
   <br />
-  <h2 class="text-center text-primary register">Sign Up</h2>
-  <hr />
+  <div class="center-alignment">
+    <div class="text-center text-primary register">
+      <img src="/assets/img/loginlogo.png" alt="SouthIndian Kitchen" id="logo" data-height-percentage="73" data-actual-width="735" data-actual-height="560" class="img-alignment" style="width:120px;margin:0px 42%;">
+      <h2>Sign Up</h2>
+      <hr />
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="Username" [(ngModel)]="model.Username"
+             required="required" placeholder="Username" minlength="3" maxlength="30" pattern="^[A-Za-z0-9 /-]*$" #refpname="ngModel"
+             [ngClass]="{ 'is-invalid': refpname.invalid && (refpname.dirty || refpname.touched || registerForm.submitted), 'is-valid': refpname.valid && (refpname.dirty || refpname.touched || registerForm.submitted) }" />
 
-  <div class="form-group">
-    <input type="text" class="form-control" name="Username" [(ngModel)]="model.Username"
-           required="required" placeholder="Username" minlength="3" maxlength="30" pattern="^[A-Za-z0-9 /-]*$" #refpname="ngModel"
-           [ngClass]="{ 'is-invalid': refpname.invalid && (refpname.dirty || refpname.touched || registerForm.submitted), 'is-valid': refpname.valid && (refpname.dirty || refpname.touched || registerForm.submitted) }" />
+      <span class="text-danger alert" *ngIf="refpname.invalid && (refpname.dirty || refpname.touched || registerForm.submitted) && refpname.errors?.required">UserName can't be blank</span>
 
-    <span class="text-danger alert" *ngIf="refpname.invalid && (refpname.dirty || refpname.touched || registerForm.submitted) && refpname.errors?.required">UserName can't be blank</span>
+      <span class="text-danger alert" *ngIf="refpname.invalid && (refpname.dirty || refpname.touched || registerForm.submitted) && refpname.errors?.pattern">UserName can contain alphabets, digits, dot, hyphen or space only</span>
 
-    <span class="text-danger alert" *ngIf="refpname.invalid && (refpname.dirty || refpname.touched || registerForm.submitted) && refpname.errors?.pattern">UserName can contain alphabets, digits, dot, hyphen or space only</span>
+      <span class="text-danger alert" *ngIf="refpname.invalid && (refpname.dirty || refpname.touched || registerForm.submitted) && refpname.errors?.minlength">UserName should be at least 3 characters long</span>
+    </div>
 
-    <span class="text-danger alert" *ngIf="refpname.invalid && (refpname.dirty || refpname.touched || registerForm.submitted) && refpname.errors?.minlength">UserName should be at least 3 characters long</span>
-  </div>
+    <div class="form-group">
+      <input type="password" class="form-control" required name="Password" [(ngModel)]="model.Password"
+             placeholder="Password" minlength="3" maxlength="30" pattern="^[A-Za-z0-9 /-]*$" #refpassword="ngModel"
+             [ngClass]="{ 'is-invalid': refpassword.invalid && (refpassword.dirty || refpassword.touched || registerForm.submitted), 'is-valid': refpassword.valid && (refpassword.dirty || refpassword.touched || registerForm.submitted) }" />
 
-  <div class="form-group">
-    <input type="password" class="form-control" required name="Password" [(ngModel)]="model.Password"
-           placeholder="Password" minlength="3" maxlength="30" pattern="^[A-Za-z0-9 /-]*$" #refpassword="ngModel"
-           [ngClass]="{ 'is-invalid': refpassword.invalid && (refpassword.dirty || refpassword.touched || registerForm.submitted), 'is-valid': refpassword.valid && (refpassword.dirty || refpassword.touched || registerForm.submitted) }" />
+      <span class="text-danger alert" *ngIf="refpassword.invalid && (refpassword.dirty || refpassword.touched || registerForm.submitted) && refpassword.errors?.required">Password  can't be blank</span>
 
-    <span class="text-danger alert" *ngIf="refpassword.invalid && (refpassword.dirty || refpassword.touched || registerForm.submitted) && refpassword.errors?.required">Password  can't be blank</span>
+      <span class="text-danger alert" *ngIf="refpassword.invalid && (refpassword.dirty || refpassword.touched || registerForm.submitted) && refpassword.errors?.pattern">Password  can contain alphabets, digits, dot, hyphen or space only</span>
 
-    <span class="text-danger alert" *ngIf="refpassword.invalid && (refpassword.dirty || refpassword.touched || registerForm.submitted) && refpassword.errors?.pattern">Password  can contain alphabets, digits, dot, hyphen or space only</span>
+      <span class="text-danger alert" *ngIf="refpassword.invalid && (refpassword.dirty || refpassword.touched || registerForm.submitted) && refpassword.errors?.minlength">Password should be at least 3 characters long</span>
 
-    <span class="text-danger alert" *ngIf="refpassword.invalid && (refpassword.dirty || refpassword.touched || registerForm.submitted) && refpassword.errors?.minlength">Password should be at least 3 characters long</span>
+    </div>
 
-  </div>
-
-  <div class="form-group text-center">
-    <button class="btn login mr-2" type="submit">Sign Up</button>
-    <button class="btn login" type="button" (click)="cancel()">
-      No, Thanks
-    </button>
-  </div>
+    <div class="form-group text-center">
+      <button class="btn login mr-2" type="submit">Sign Up</button>
+      <button class="btn login" type="button" (click)="cancel()">
+        No, Thanks
+      </button>
+    </div>
+ </div>
 </form>

@@ -17,7 +17,12 @@ ul {
 li {
   display: inline;
 }
-
+.image-banner {
+  height: 250px;
+}
+.banner {
+  padding-top: 70px;
+}
 
 /*=================footer css start==============*/
 .webintern-footer {

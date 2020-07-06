@@ -15,5 +15,6 @@ namespace SouthIndianKitchens.API.Data
         public DbSet<UploadVideoURL> UploadVideoURL { get; set; }
 
         public DbSet<SocialMediaLinks> SocialMediaLinks { get; set; }
+        public DbSet<UserSubscription> UserSubscription { get; set; }
     }
 }

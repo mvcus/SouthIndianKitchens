@@ -28,6 +28,6 @@ exports.appRoutes = [
             { path: 'aboutus', component: aboutus_component_1.AboutusComponent }
         ]
     },
-    { path: '**', redirectTo: '', pathMatch: 'full' }
+    { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 //# sourceMappingURL=routes.js.map

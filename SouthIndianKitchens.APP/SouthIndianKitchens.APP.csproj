@@ -24,6 +24,10 @@
     <PackageReference Include="IdentityModel" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0-preview-19075-0444" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="System.Data.SQLite" Version="1.0.112" />
   </ItemGroup>
 
@@ -51,6 +55,7 @@
     <None Remove="ClientApp\src\app\_Interfaces\user.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
+    <None Remove="ClientApp\src\app\_layout\site-login\site-login.component.ts" />
     <None Remove="ClientApp\src\app\_services\sociallinks.service.ts" />
     <None Remove="routes.ts" />
     <None Remove="styles\et-core-unified-13-15864520477412.min.css" />
@@ -77,6 +82,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\user.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_layout\site-login\site-login.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_services\sociallinks.service.ts" />
   </ItemGroup>
 

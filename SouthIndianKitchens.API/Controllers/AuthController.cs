@@ -215,10 +215,53 @@ namespace SouthIndianKitchens.API.Controllers
 
         [HttpGet]
         [Route("getSocialMediaLinks")]
-        public async Task<IActionResult> GetgetSocialMediaLinks()
+        public async Task<IActionResult> getSocialMediaLinks()
         {
             var values = await _repo.getSocialMediaLinks();
             return Ok(values);
+        }
+
+       
+        [HttpPost("sendEmail")]
+        public async Task<IActionResult> SendEmail(UserForSubscriptionDto userForSubscriptionDto, string Email)
+        {
+            userForSubscriptionDto.Email = userForSubscriptionDto.Email.ToLower();
+
+            var client = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587);
+            client.UseDefaultCredentials = false;
+            client.EnableSsl = true;
+
+            client.Credentials = new System.Net.NetworkCredential("kalaimca2013@gmail.com", "kavin@2018");
+
+            var mailMessage = new System.Net.Mail.MailMessage();
+            mailMessage.From = new System.Net.Mail.MailAddress("kalaimca2013@gmail.com");
+
+            mailMessage.To.Add(userForSubscriptionDto.Email);
+
+            //mailMessage.To.Add(email.To);
+            //if (!string.IsNullOrEmpty(email.Cc))
+            //{
+            //    mailMessage.CC.Add(email.Cc);
+            //}
+
+            mailMessage.Body = "Successfully subscribed";
+
+            mailMessage.Subject = "South Indian food email subscription";
+
+            mailMessage.BodyEncoding = System.Text.Encoding.UTF8;
+            mailMessage.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            await client.SendMailAsync(mailMessage);
+
+            var userToSubscribe = new UserSubscription
+            {
+                Email = userForSubscriptionDto.Email
+            };
+
+            var subscribedUser = await _repo.SendEmail(userToSubscribe, userForSubscriptionDto.Email);
+
+            return StatusCode(201);
+            //return Ok();
         }
     }
 }

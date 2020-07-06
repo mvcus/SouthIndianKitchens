@@ -385,6 +385,7 @@ ul.tt-socail {
   color: #fff;
   padding-top: 110px;
   padding-bottom: 110px;
+  height: 250px;
 }
 .image-aboutus-sm-banner {
   /*background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/631008/pexels-photo-631008.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");*/
@@ -404,4 +405,13 @@ ul.tt-socail {
 }
 .mt-2, .my-2 {
   margin-top: 0px !important;
+}
+/*.banner {
+  padding-top: 70px;
+}*/
+.fancy{
+    font-weight:600;
+}
+.title {
+    padding-bottom: 20px;
 }

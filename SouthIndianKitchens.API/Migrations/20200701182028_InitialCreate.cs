@@ -14,7 +14,7 @@ namespace SouthIndianKitchens.API.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(nullable: true),
-                    Logo = table.Column<byte[]>(nullable: true)
+                    ico = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

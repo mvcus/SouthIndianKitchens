@@ -153,4 +153,25 @@
     $(".modal-body #myImage").attr("src", myImageId);
   });
 
+  function SendEmail() {
+    $.ajax(
+      {
+        type: "POST",
+        url: '@Url.Action("SendEmail", "MailSender")',
+        data: {
+          Name: $("#name").val(),
+          Email: $("#email").val(),
+          Message: $("#message").val()
+        },
+        error: function (result) {
+          console.log(result);
+        },
+        success: function (result) {
+          alert(result);
+          $("#name").val("");
+          $("#email").val("");
+          $("#message").val("");
+        }
+      });
+  }
 })(jQuery);

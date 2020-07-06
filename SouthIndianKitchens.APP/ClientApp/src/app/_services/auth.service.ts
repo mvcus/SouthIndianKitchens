@@ -39,8 +39,7 @@ login(model: any)
   onDeleteVideo(model: any) {
     return this.http.delete(this.baseUrl + 'DeleteVideo/' + model);
   }
-  
-register(model: any){
+  register(model: any){
   return this.http.post(this.baseUrl + 'register', model);
 }
 
@@ -62,5 +61,8 @@ register(model: any){
   }
   getSocialMediaLinks() {
     return this.http.get(this.baseUrl + 'getSocialMediaLinks');
+  }
+  sendEmail(model: any) {
+    return this.http.post(this.baseUrl + 'SendEmail', model);
   }
 }

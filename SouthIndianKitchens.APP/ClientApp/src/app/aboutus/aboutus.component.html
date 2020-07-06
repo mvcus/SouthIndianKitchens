@@ -8,7 +8,7 @@
 
 <div class="image-aboutus-banner">
   <div class="container">
-    <div class="row">
+    <div class="row banner">
       <div class="col-md-12">
         <h1 class="lg-text">About Us</h1>
         <p class="image-aboutus-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -121,38 +121,15 @@
       <div class="col-md-4 footer-one">
         <h5>About Us </h5>
         <p>Cras sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        <!--<table class="table table-bordered table-striped">
-    <thead>
-      <tr class="text-center text-uppercase">
-        <th>Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let medialinks of socialMediaLinks">
-        <td>{{medialinks.name}}</td>
-      </tr>
-    </tbody>
-  </table>-->
-      <div class="social-icons">
-       <!--<div *ngFor="let medialinks of socialMediaLinks">
-    <div *ngIf="(medialinks.name == 'Facebook')"><a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a></div>
-    <div *ngIf="(medialinks.name == 'Twitter')"><a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a></div>
-    <div *ngIf="(medialinks.name == 'Google')"><a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a></div>
-    <div *ngIf="(medialinks.name == 'Gmail')"><a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a></div>
-    <div *ngIf="(medialinks.name == 'Youtube')"><a href="https://www.youtube.com/"><i id="social-em" class="fa fa-youtube fa-3x social"></i></a></div>
-  </div>-->
+      <div class="social-icons" style="display:flex">
+     
         <!-- TT-SOCAIL -->
-       <ul class="tt-socail" *ngFor="let medialinks of socialMediaLinks">
-          <li *ngIf="(medialinks.name == 'Facebook')"><a href="#"><i class="fa fa-facebook-square fa-3x social" aria-hidden="true"></i></a></li>
-          <li *ngIf="(medialinks.name == 'Twitter')"><a href="#"><i class="fa fa-twitter-square fa-3x social" aria-hidden="true"></i></a></li>
-          <li *ngIf="(medialinks.name == 'Google')"><a href="#"><i class="fa fa-google-plus-square fa-3x social" aria-hidden="true"></i></a></li>
-          <li *ngIf="(medialinks.name == 'Gmail')"><a href="#"><i class="fa fa-envelope-square fa-3x social" aria-hidden="true"></i></a></li>
-          <li *ngIf="(medialinks.name == 'Youtube')"><a href="#"><i class="fa fa-youtube-square fa-3x social" aria-hidden="true"></i></a></li>
-          <li *ngIf="(medialinks.name == 'LinkedIn')"><a href="#"><i class="fa fa-linkedin-square fa-3x social" aria-hidden="true"></i></a></li>
+        <ul class="tt-links" *ngFor="let medialinks of socialMediaLinks" >
+          <li a><a href="#"><i class= '{{ medialinks.ico }}' aria-hidden="true" ></i></a></li>
         </ul>
       </div>
       </div>
-      <div class="col-md-3 footer-two">
+      <div class="col-md-3 footer-two footer-links">
         <h5>Information </h5>
         <ul>
           <li><a href="maintenance.html">Maintenance Tips</a></li>
@@ -162,7 +139,7 @@
           <li><a href="about.html">Partners</a></li>
         </ul>
       </div>
-      <div class="col-md-3 footer-three">
+      <div class="col-md-3 footer-three footer-links">
         <h5>Helpful Links </h5>
         <ul>
           <li><a href="maintenance.html">Maintenance Tips</a></li>

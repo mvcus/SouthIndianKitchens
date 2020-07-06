@@ -10,7 +10,7 @@ using SouthIndianKitchens.API.Data;
 namespace SouthIndianKitchens.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200618192332_InitialCreate")]
+    [Migration("20200701182028_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,8 +28,8 @@ namespace SouthIndianKitchens.API.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<byte[]>("Logo")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("ico")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");

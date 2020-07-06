@@ -180,9 +180,10 @@
       href="https://www.ernestwright.co.uk/wp-content/uploads/2018/11/cropped-ms-icon-310x310-180x180.png" />
 <meta name="msapplication-TileImage"
       content="https://www.ernestwright.co.uk/wp-content/uploads/2018/11/cropped-ms-icon-310x310-270x270.png" />
-<body>
+<!--<body>-->
 
   <!--======================footer start======================-->
+<form #sendEmailForm="ngForm" (ngSubmit)="sendEmail()" class="background" style="overflow:hidden">
   <footer class="webintern-footer">
     <div class="webintern-footer-inner">
       <div class="container">
@@ -193,6 +194,18 @@
             </a>
             <div class="simple-text dark padding-sm">
               <p>Totam rem aperiam, eaque ipsa quae ab illo inv ent ore veritatis et quasi architecto beatae vitae dict eaque ipsa quae ab.</p>
+            </div>
+            <div style="display:flex">
+              <!-- TT-SOCAIL -->
+              <ul class="tt-socail" *ngFor="let medialinks of socialMediaLinks">
+                <li><a href="#"><!--<i class="fa fa-Youtube" aria-hidden="true"></i>--></a></li>
+                <!--<li *ngIf="(medialinks.name == 'LinkedIn')"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+      <li *ngIf="(medialinks.name == 'Twitter')"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li *ngIf="(medialinks.name == 'Google')"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+      <li *ngIf="(medialinks.name == 'Gmail')"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+      <li *ngIf="(medialinks.name == 'Youtube')"><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>-->
+                <li a><a href="#"><i class='{{ medialinks.ico }}' aria-hidden="true"></i></a></li>
+              </ul>
             </div>
             <div class="empty-space xs-25 sm-25"></div>
           </div>
@@ -225,38 +238,28 @@
           <div class="col-xs-12 col-md-4 col-sm-6">
             <div class="marg-sm-b30"></div>
             <!-- webintern_footer_title -->
-            <h4 class="webintern_footer_title h5"><small>Subscribe Newsletter</small></h4>
+            <h4 class="webintern_footer_title h5"><small>Subscribe to our Newsletter</small></h4>
             <div class="empty-space marg-lg-b20"></div>
-            <!--
-            <div class="simple-text last dark ">
-            <p>Get latest updates and offers.</p>
-            </div>
-            -->
+
             <div class="empty-space marg-lg-b15"></div>
             <!-- TT-SUBSCRIBE -->
-            <form method="post">
-              <div class="tt-subscribe">
-                <input type="text" required="" placeholder="Enter your email">
-                <div class="tt-subscribe-submit">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="submit" value="">
-                </div>
+
+            <div class="tt-subscribe">
+              <input type="email" id="Email"  placeholder="Enter your email" value="" [(ngModel)]="model.Email" #Email="ngModel" name="Email" 
+                   required="required"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+              
+              <button (click)="sendEmail()" type="button" name="button" class="subscribe">Subscribe</button>
+            </div>
+            <div *ngIf="Email.errors && (Email.dirty || Email.touched)" class="alert-email alert-danger-email">
+              <br>
+              <div [hidden]="!Email.errors.required" style="color:red">
+                Email is required.Enter Your Email ID !
               </div>
-            </form>
+              <div [hidden]="!Email.errors" style="color:red">
+                Please input a valid Email ID!
+              </div>
+            </div>
             <div class="empty-space marg-lg-b30"></div>
-            <!-- TT-SOCAIL -->
-            <ul class="tt-socail" *ngFor="let medialinks of socialMediaLinks">
-              <li *ngIf="(medialinks.name == 'Facebook')"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li *ngIf="(medialinks.name == 'LinkedIn')"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-              <li *ngIf="(medialinks.name == 'Twitter')"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li *ngIf="(medialinks.name == 'Google')"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-              <li *ngIf="(medialinks.name == 'Gmail')"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-              <li *ngIf="(medialinks.name == 'Youtube')"><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-              <!--<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>-->
-            </ul>
           </div>
         </div>
       </div>
@@ -276,5 +279,6 @@
       </div>
     </div>
   </footer>
-</body>
+</form>
+  <!--</body>-->
 

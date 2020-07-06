@@ -30,5 +30,5 @@ export const appRoutes: Routes = [
         { path: 'aboutus', component: AboutusComponent }
       ]
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

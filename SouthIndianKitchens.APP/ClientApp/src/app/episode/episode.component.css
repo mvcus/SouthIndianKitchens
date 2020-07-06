@@ -23,6 +23,12 @@ li {
 .color{
     background-color: #9E9E9E;
 }
+.image-banner {
+  height: 250px;
+}
+.banner {
+  padding-top: 70px;
+}
 
 /*=================footer css start==============*/
 .webintern-footer {

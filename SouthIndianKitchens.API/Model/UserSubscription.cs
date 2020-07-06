@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace SouthIndianKitchens.API.Model
 {
-    public class SocialMediaLinks
+    public class UserSubscription
     {
         public int Id { get; set; }
-        public string name { get; set; }
-        public string ico { get; set; }
+        public string Email { get; set; }
+        public bool isSent { get; set; }
+
     }
 }
