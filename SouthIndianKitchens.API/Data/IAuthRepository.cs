@@ -9,7 +9,7 @@ namespace SouthIndianKitchens.API.Data
     {
         Task<Users> Register(Users user, string password);
 
-        Task<EmailSubscribe> SubscribeEmail(EmailSubscribe emailSubscribe, string EmailId);
+        //Task<EmailSubscribe> SubscribeEmail(EmailSubscribe emailSubscribe, string EmailId);
 
         Task<UploadImage> AddImage(UploadImage addIMage, string name, string address, string path);
 

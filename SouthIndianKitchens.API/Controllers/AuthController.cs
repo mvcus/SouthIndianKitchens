@@ -182,19 +182,19 @@ namespace SouthIndianKitchens.API.Controllers
             return StatusCode(201);
         }
        
-        [HttpPost("emailsubscribe")]
-        public async Task<IActionResult>SubscribeEmail(EmailSubscribeDto emailSubscribeDto)
-        {
-            emailSubscribeDto.EmailId = emailSubscribeDto.EmailId.ToLower();
-            if (await _repo.UserExist(emailSubscribeDto.EmailId))
-                return BadRequest("Email Id already Exists");
-            var subscribeToCreate = new EmailSubscribe
-            {
-                SubscriberEmail = emailSubscribeDto.EmailId
-            };
-            var createdSubscriber = await _repo.SubscribeEmail(subscribeToCreate, emailSubscribeDto.EmailId);
-            return StatusCode(201);
-        }
+        //[HttpPost("emailsubscribe")]
+        //public async Task<IActionResult>SubscribeEmail(EmailSubscribeDto emailSubscribeDto)
+        //{
+        //    emailSubscribeDto.EmailId = emailSubscribeDto.EmailId.ToLower();
+        //    if (await _repo.UserExist(emailSubscribeDto.EmailId))
+        //        return BadRequest("Email Id already Exists");
+        //    var subscribeToCreate = new EmailSubscribe
+        //    {
+        //        SubscriberEmail = emailSubscribeDto.EmailId
+        //    };
+        //    var createdSubscriber = await _repo.SubscribeEmail(subscribeToCreate, emailSubscribeDto.EmailId);
+        //    return StatusCode(201);
+        //}
 
 
         [HttpPost("login")]
