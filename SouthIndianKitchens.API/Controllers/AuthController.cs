@@ -246,10 +246,10 @@ namespace SouthIndianKitchens.API.Controllers
             client.UseDefaultCredentials = false;
             client.EnableSsl = true;
 
-            client.Credentials = new System.Net.NetworkCredential("kalaimca2013@gmail.com", "kavin@2018");
+            client.Credentials = new System.Net.NetworkCredential("mike1908jackson@gmail.com", "KalEl9909");
 
             var mailMessage = new System.Net.Mail.MailMessage();
-            mailMessage.From = new System.Net.Mail.MailAddress("kalaimca2013@gmail.com");
+            mailMessage.From = new System.Net.Mail.MailAddress("mike1908jackson@gmail.com");
 
             mailMessage.To.Add(userForSubscriptionDto.Email);
 
