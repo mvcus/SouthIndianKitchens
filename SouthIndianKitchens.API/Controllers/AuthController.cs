@@ -240,24 +240,25 @@ namespace SouthIndianKitchens.API.Controllers
         [HttpPost("sendEmail")]
         public async Task<IActionResult> SendEmail(UserForSubscriptionDto userForSubscriptionDto, string Email)
         {
+
+            string From = _config.GetSection("EmailSettings").GetSection("Email").Value;
+            string Password = _config.GetSection("EmailSettings").GetSection("Password").Value;
+            string SMTPHost = _config.GetSection("EmailSettings").GetSection("SMTPHost").Value;
+            string SMTPPort = _config.GetSection("EmailSettings").GetSection("SMTPPort").Value;
+            int Port = Convert.ToInt16(SMTPPort);
+
             userForSubscriptionDto.Email = userForSubscriptionDto.Email.ToLower();
 
-            var client = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587);
+            var client = new System.Net.Mail.SmtpClient(SMTPHost, Port);
             client.UseDefaultCredentials = false;
             client.EnableSsl = true;
 
-            client.Credentials = new System.Net.NetworkCredential("mike1908jackson@gmail.com", "KalEl9909");
+            client.Credentials = new System.Net.NetworkCredential(From, Password);
 
             var mailMessage = new System.Net.Mail.MailMessage();
-            mailMessage.From = new System.Net.Mail.MailAddress("mike1908jackson@gmail.com");
+            mailMessage.From = new System.Net.Mail.MailAddress(From);
 
             mailMessage.To.Add(userForSubscriptionDto.Email);
-
-            //mailMessage.To.Add(email.To);
-            //if (!string.IsNullOrEmpty(email.Cc))
-            //{
-            //    mailMessage.CC.Add(email.Cc);
-            //}
 
             mailMessage.Body = "Successfully subscribed";
 
@@ -276,7 +277,6 @@ namespace SouthIndianKitchens.API.Controllers
             var subscribedUser = await _repo.SendEmail(userToSubscribe, userForSubscriptionDto.Email);
 
             return StatusCode(201);
-            //return Ok();
         }
     }
 }

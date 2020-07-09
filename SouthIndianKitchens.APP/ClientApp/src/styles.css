@@ -20,7 +20,8 @@ body {
   font-family: "Times New Roman", Times, serif;
   background-color: #0057ff;
   color: #ffffff;
-  height:100vh;
+  /*height:100vh;*/
+  overflow-x:hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -200,7 +201,7 @@ p {
 }
 
 .et_pb_section a {
-  color: White !important;
+  /*color: White !important;*/
 }
 
  .et_pb_section a:hover {
@@ -230,7 +231,6 @@ p {
   font-size: 24px;
 }
 .readmore {
-  color: #0254AC !important;
   font-weight: 400 !important;
 }
 .readmore-top{
