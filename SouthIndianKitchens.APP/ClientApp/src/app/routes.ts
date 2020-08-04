@@ -9,6 +9,7 @@ import { EpisodeComponent } from './episode/episode.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { ReviewsComponent } from './reviews/reviews.compnent';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { ManageImagesComponent } from './manageimages/manageimages.component';
 
 export const appRoutes: Routes = [
   
@@ -27,7 +28,8 @@ export const appRoutes: Routes = [
         { path: 'episode', component: EpisodeComponent },
         { path: 'recipe', component: RecipeComponent },
         { path: 'reviews', component: ReviewsComponent },
-        { path: 'aboutus', component: AboutusComponent }
+        { path: 'aboutus', component: AboutusComponent },
+        { path: 'manage', component: ManageImagesComponent, canActivate: [AuthGuard], }
       ]
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },

@@ -45,17 +45,22 @@
     <None Remove="ClientApp\src\app\footer\footer.component.ts" />
     <None Remove="ClientApp\src\app\header\header.component.spec.ts" />
     <None Remove="ClientApp\src\app\header\header.component.ts" />
+    <None Remove="ClientApp\src\app\manageimages\manageimages.component.spec.ts" />
+    <None Remove="ClientApp\src\app\manageimages\manageimages.component.ts" />
     <None Remove="ClientApp\src\app\routes.ts" />
     <None Remove="ClientApp\src\app\Upload\deleteVideoDetails.ts" />
     <None Remove="ClientApp\src\app\Upload\delteImageDetails.ts" />
     <None Remove="ClientApp\src\app\Upload\editImageList.ts" />
     <None Remove="ClientApp\src\app\Upload\editVideoList.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\imageToDelete.ts" />
+    <None Remove="ClientApp\src\app\_Interfaces\manageImages.model.ts" />
+    <None Remove="ClientApp\src\app\_Interfaces\menuList.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\socialMediaLinks.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\user.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
     <None Remove="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
     <None Remove="ClientApp\src\app\_layout\site-login\site-login.component.ts" />
+    <None Remove="ClientApp\src\app\_services\images.service.ts" />
     <None Remove="ClientApp\src\app\_services\sociallinks.service.ts" />
     <None Remove="routes.ts" />
     <None Remove="styles\et-core-unified-13-15864520477412.min.css" />
@@ -72,21 +77,28 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\header\header.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\header\header.component.spec.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\manageimages\manageimages.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\manageimages\manageimages.component.spec.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\routes.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Upload\deleteVideoDetails.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Upload\delteImageDetails.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Upload\editVideoList.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Upload\editImageList.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\imageToDelete.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\manageImages.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\menuList.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\socialMediaLinks.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\user.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\userToCreate.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_Interfaces\VideoToCreate.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_layout\site-login\site-login.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_services\images.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_services\sociallinks.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\assets\img\NewFolder\" />
+    <Folder Include="ClientApp\src\assets\Manage\" />
     <Folder Include="styles\" />
   </ItemGroup>
 

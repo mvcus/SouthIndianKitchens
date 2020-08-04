@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import * as _ from 'lodash';
 
 
 @Injectable({
@@ -55,7 +56,7 @@ login(model: any)
   getImages() {
     return this.http.get(this.baseUrl + 'getImages');
   }
-
+ 
   getVideoUrl() {
     return this.http.get(this.baseUrl + 'getVideoUrl');
   }
@@ -65,4 +66,23 @@ login(model: any)
   sendEmail(model: any) {
     return this.http.post(this.baseUrl + 'SendEmail', model);
   }
+  getMenuTitles() {
+    return this.http.get(this.baseUrl + 'getMenuTitles');
+  }
+  getDropDownText(id, object) {
+    const selObj = _.filter(object, function (o) {
+      return (_.includes(id, o.id));
+    });
+    return selObj;
+  }
+  manageImages(model: any) {
+    return this.http.post(this.baseUrl + 'manageImages', model);
+  }
+  getManageImages() {
+    return this.http.get(this.baseUrl + 'getManageImages');
+  }
+  getHomeImages(titleId: any) {
+    return this.http.post(this.baseUrl + 'getHomeImages', titleId);
+  }
+
 }

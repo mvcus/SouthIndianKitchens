@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using SouthIndianKitchens.API.Model;
 
@@ -35,6 +37,14 @@ namespace SouthIndianKitchens.API.Data
         Task<System.Collections.Generic.IEnumerable<SocialMediaLinks>> getSocialMediaLinks();
 
         Task<UserSubscription> SendEmail(UserSubscription userSubscription, string Email);
+
+        Task<Images> ManageImages(Images manageImages, int TitleId, bool IsBanner, string ImagePath);
+
+        Task<System.Collections.Generic.IEnumerable<Menu>> getMenuTitles();
+
+        Task<System.Collections.Generic.IEnumerable<Images>> getManageImages();
+
+        Task<System.Collections.Generic.IEnumerable<Images>> getHomeImages(int titleId);
 
     }
 }

@@ -13,6 +13,9 @@ using System.Web;
 using System.IO;
 using System.Net.Http.Headers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace SouthIndianKitchens.API.Controllers
 {
@@ -24,10 +27,13 @@ namespace SouthIndianKitchens.API.Controllers
 
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        private IWebHostEnvironment _hostingEnvironment;
+
+        public AuthController(IAuthRepository repo, IConfiguration config, IWebHostEnvironment environment)
         {
             _config = config;
             _repo = repo;
+            _hostingEnvironment = environment;
         }
 
         [HttpPost, DisableRequestSizeLimit]
@@ -181,7 +187,7 @@ namespace SouthIndianKitchens.API.Controllers
             var createdUser = await _repo.Register(userToCreate, userForRegistrationDto.Password);
             return StatusCode(201);
         }
-       
+
         //[HttpPost("emailsubscribe")]
         //public async Task<IActionResult>SubscribeEmail(EmailSubscribeDto emailSubscribeDto)
         //{
@@ -236,7 +242,7 @@ namespace SouthIndianKitchens.API.Controllers
             return Ok(values);
         }
 
-       
+
         [HttpPost("sendEmail")]
         public async Task<IActionResult> SendEmail(UserForSubscriptionDto userForSubscriptionDto, string Email)
         {
@@ -277,6 +283,65 @@ namespace SouthIndianKitchens.API.Controllers
             var subscribedUser = await _repo.SendEmail(userToSubscribe, userForSubscriptionDto.Email);
 
             return StatusCode(201);
+        }
+
+        [HttpGet]
+        [Route("getMenuTitles")]
+        public async Task<IActionResult> getMenuTitles()
+        {
+            var values = await _repo.getMenuTitles();
+            return Ok(values);
+        }
+
+        //method is used to manage the images in Db
+        [HttpPost("manageImages")]
+        public async Task<IActionResult> ManageImages(ManageImagesDto manageImagesDto)
+        {
+            manageImagesDto.TitleId = manageImagesDto.TitleId;
+            manageImagesDto.IsBanner = manageImagesDto.IsBanner;
+            manageImagesDto.ImagePath = manageImagesDto.ImagePath;
+
+            var manageImages = new Images
+            {
+                TitleId = manageImagesDto.TitleId,
+                IsBanner = manageImagesDto.IsBanner,
+                ImagePath = manageImagesDto.ImagePath
+            };
+
+            var manageImage = await _repo.ManageImages(manageImages, manageImagesDto.TitleId, manageImagesDto.IsBanner, manageImagesDto.ImagePath);
+            return StatusCode(201);
+        }
+
+
+        [HttpGet]
+        [Route("getManageImages")]
+        public async Task<IActionResult> GetManageImages()
+        {
+            var values = await _repo.getManageImages();
+            return Ok(values);
+        }
+
+        [HttpPost("getHomeImages")]
+        public async Task<IActionResult> GetHomeImages(int titleId)
+        {
+            var values = await _repo.getHomeImages(titleId);
+
+            string convertedeToImage = "" ;
+            string contentRootPath = _hostingEnvironment.ContentRootPath;
+            
+            List<string> imageList = new List<string>();
+            foreach (var images in values)
+            {
+                string imagePath = "";
+                imagePath = contentRootPath + "/" + images.ImagePath;
+                byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+
+                // Convert byte[] to Base64 String
+                string base64String = Convert.ToBase64String(imageBytes);
+                convertedeToImage = "data:image/jpeg;base64," + base64String;
+                imageList.Add(convertedeToImage);
+            }
+            return Ok(imageList);
         }
     }
 }

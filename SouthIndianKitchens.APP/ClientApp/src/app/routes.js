@@ -10,6 +10,7 @@ var episode_component_1 = require("./episode/episode.component");
 var recipe_component_1 = require("./recipe/recipe.component");
 var reviews_compnent_1 = require("./reviews/reviews.compnent");
 var aboutus_component_1 = require("./aboutus/aboutus.component");
+var manageimages_component_1 = require("./manageimages/manageimages.component");
 exports.appRoutes = [
     { path: '', component: home_component_1.HomeComponent },
     {
@@ -25,7 +26,8 @@ exports.appRoutes = [
             { path: 'episode', component: episode_component_1.EpisodeComponent },
             { path: 'recipe', component: recipe_component_1.RecipeComponent },
             { path: 'reviews', component: reviews_compnent_1.ReviewsComponent },
-            { path: 'aboutus', component: aboutus_component_1.AboutusComponent }
+            { path: 'aboutus', component: aboutus_component_1.AboutusComponent },
+            { path: 'manage', component: manageimages_component_1.ManageImagesComponent, canActivate: [auth_guard_1.AuthGuard], }
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' },

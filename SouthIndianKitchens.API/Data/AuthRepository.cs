@@ -21,9 +21,9 @@ namespace SouthIndianKitchens.API.Data
         public async Task<Users> Login(string username, string password)
         {
             //byte[] data = System.Text.UTF8Encoding.GetBytes(_context.User.passwordHash);
-            
+
             //var user = await _context.User.FirstOrDefaultAsync(x => x.Username == username);
-             var user = await _context.User.SingleOrDefaultAsync(x => x.Username == username);
+            var user = await _context.User.SingleOrDefaultAsync(x => x.Username == username);
             if (user == null)
                 return null;
             if (!verifyPasswordHash(password, user.passwordHash, user.PasswordSalt))
@@ -64,7 +64,7 @@ namespace SouthIndianKitchens.API.Data
         //    return email;
         //}
 
-        public async Task<UploadImage> AddImage(UploadImage uploadImage , string name, string address,string path)
+        public async Task<UploadImage> AddImage(UploadImage uploadImage, string name, string address, string path)
         {
             uploadImage.Name = name;
             uploadImage.Address = address;
@@ -75,7 +75,7 @@ namespace SouthIndianKitchens.API.Data
 
         }
 
-        public async Task<UploadImage>EditImage(UploadImage uploadImage1)
+        public async Task<UploadImage> EditImage(UploadImage uploadImage1)
         {
 
             UploadImage uploadImage = _context.UploadImage.Where(temp => temp.Id == uploadImage1.Id).FirstOrDefault();
@@ -83,8 +83,8 @@ namespace SouthIndianKitchens.API.Data
             {
                 uploadImage.Name = uploadImage1.Name;
                 uploadImage.Address = uploadImage1.Address;
-              
-               // await _context.UploadImage.AddAsync(uploadImage);
+
+                // await _context.UploadImage.AddAsync(uploadImage);
                 await _context.SaveChangesAsync();
                 return uploadImage;
             }
@@ -93,13 +93,13 @@ namespace SouthIndianKitchens.API.Data
                 return null;
             }
         }
-        public async Task <int> DeleteImage(int delImageId)
+        public async Task<int> DeleteImage(int delImageId)
         {
             UploadImage deleteImageid1 = _context.UploadImage.Where(temp => temp.Id == delImageId).FirstOrDefault();
-            if(deleteImageid1 != null)
+            if (deleteImageid1 != null)
             {
                 _context.Remove(deleteImageid1);
-                await _context.SaveChangesAsync();              
+                await _context.SaveChangesAsync();
                 return delImageId;
             }
             else
@@ -107,7 +107,7 @@ namespace SouthIndianKitchens.API.Data
                 return -1;
             }
         }
-        
+
 
         public async Task<int> DeleteVideo(int delVideoId)
         {
@@ -170,6 +170,7 @@ namespace SouthIndianKitchens.API.Data
             return UploadImage;
         }
 
+        
         public async Task<UploadVideoURL> AddVideoUrl(UploadVideoURL addvideo, string videoName, string videoUrl, bool path)
         {
             addvideo.VideoName = videoName;
@@ -182,7 +183,7 @@ namespace SouthIndianKitchens.API.Data
 
         public async Task<IEnumerable<UploadVideoURL>> getVideoUrl()
         {
-            var UploadVideoUrl = await _context.UploadVideoURL.Where(p =>p.isActive == true).ToListAsync();
+            var UploadVideoUrl = await _context.UploadVideoURL.Where(p => p.isActive == true).ToListAsync();
             return UploadVideoUrl;
         }
 
@@ -199,5 +200,38 @@ namespace SouthIndianKitchens.API.Data
             await _context.SaveChangesAsync();
             return userSubscription;
         }
+        public async Task<IEnumerable<Menu>> getMenuTitles()
+        {
+            var menuTitles = await _context.Menu.ToListAsync();
+            return menuTitles;
+        }
+        public async Task<Images> ManageImages(Images images, int TitleId, bool IsBanner, string ImagePath)
+        {
+            images.TitleId = TitleId;
+            images.IsBanner = IsBanner;
+            string path = ImagePath;
+            int pos = path.LastIndexOf("\\") + 1;
+            path = (path.Substring(pos, path.Length - pos));
+            images.ImagePath = "Resources/Images/" + path;
+            await _context.Images.AddAsync(images);
+            await _context.SaveChangesAsync();
+            return images;
+        }
+
+        public async Task<IEnumerable<Images>> getManageImages()
+        {
+            var test = (from images in _context.Images
+                         join menu in _context.Menu on images.TitleId equals menu.Id
+                         select new { images.ImagePath, images.IsBanner, menu.Title }).ToListAsync();
+            var ManageImage = await _context.Images.ToListAsync();
+            return ManageImage;
+        }
+
+        public async Task<IEnumerable<Images>> getHomeImages(int titleId)
+        {
+            var UploadImage = await _context.Images.ToListAsync();
+            return UploadImage;
+        }
+
     }
 }

@@ -415,3 +415,19 @@ ul.tt-socail {
 .title {
     padding-bottom: 20px;
 }
+.column {
+  float: left !important;
+  width: 33.33% !important;
+  padding: 10px !important;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "" !important;
+  display: table !important;
+  clear: both !important;
+}
+img {
+  height: 90% !important;
+  width: 90%;
+}
