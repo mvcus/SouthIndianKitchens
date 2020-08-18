@@ -81,8 +81,8 @@ login(model: any)
   getManageImages() {
     return this.http.get(this.baseUrl + 'getManageImages');
   }
-  getHomeImages(titleId: any) {
-    return this.http.post(this.baseUrl + 'getHomeImages', titleId);
+  getHomeImages() {
+    return this.http.get(this.baseUrl + 'getHomeImages');
   }
 
 }

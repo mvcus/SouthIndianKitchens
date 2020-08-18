@@ -321,25 +321,43 @@ namespace SouthIndianKitchens.API.Controllers
             return Ok(values);
         }
 
-        [HttpPost("getHomeImages")]
-        public async Task<IActionResult> GetHomeImages(int titleId)
+        [HttpGet("getHomeImages")]
+        public async Task<IActionResult> GetHomeImages()
         {
-            var values = await _repo.getHomeImages(titleId);
+            var values = await _repo.getHomeImages();
 
             string convertedeToImage = "" ;
             string contentRootPath = _hostingEnvironment.ContentRootPath;
-            
+
+            //Dictionary<int,string> imageList = new Dictionary<int,string>();
+            //foreach (var images in values)
+            //{
+            //    string imagePath = "";
+            //    string titleId = "";
+            //    imagePath = contentRootPath + "/" + images.ImagePath;
+            //    titleId = Convert.ToString(images.TitleId);
+            //    byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+
+            //    // Convert byte[] to Base64 String
+            //    string base64String = Convert.ToBase64String(imageBytes);
+            //    convertedeToImage = "data:image/jpeg;base64," + base64String;
+            //    imageList.Add(images.TitleId, convertedeToImage);
+            //}
+            //return Ok(imageList.ToArray());
+
             List<string> imageList = new List<string>();
             foreach (var images in values)
             {
                 string imagePath = "";
+                string titleId = "";
                 imagePath = contentRootPath + "/" + images.ImagePath;
+                titleId = Convert.ToString(images.TitleId);
                 byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
 
                 // Convert byte[] to Base64 String
                 string base64String = Convert.ToBase64String(imageBytes);
                 convertedeToImage = "data:image/jpeg;base64," + base64String;
-                imageList.Add(convertedeToImage);
+                imageList.Add(titleId + "~~" + convertedeToImage);
             }
             return Ok(imageList);
         }

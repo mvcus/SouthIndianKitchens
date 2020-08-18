@@ -44,7 +44,7 @@ namespace SouthIndianKitchens.API.Data
 
         Task<System.Collections.Generic.IEnumerable<Images>> getManageImages();
 
-        Task<System.Collections.Generic.IEnumerable<Images>> getHomeImages(int titleId);
+        Task<System.Collections.Generic.IEnumerable<Images>> getHomeImages();
 
     }
 }

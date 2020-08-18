@@ -27,7 +27,8 @@ namespace SouthIndianKitchens.API.Data
             if (user == null)
                 return null;
             if (!verifyPasswordHash(password, user.passwordHash, user.PasswordSalt))
-                return user;
+                //return user;
+                return null;
             return user;
         }
 
@@ -227,7 +228,7 @@ namespace SouthIndianKitchens.API.Data
             return ManageImage;
         }
 
-        public async Task<IEnumerable<Images>> getHomeImages(int titleId)
+        public async Task<IEnumerable<Images>> getHomeImages()
         {
             var UploadImage = await _context.Images.ToListAsync();
             return UploadImage;

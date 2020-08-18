@@ -5,6 +5,8 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { menuList } from '../_Interfaces/menuList.model';
 import { Observable } from 'rxjs';
 import { managedImages } from '../_Interfaces/manageImages.model';
+import { AlertifyService } from '../_services/alertify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manageimage',
@@ -43,7 +45,7 @@ export class ManageImagesComponent implements OnInit {
     this.response = event;
   }
 
-  constructor(private http: HttpClient, private authservice: AuthService, fb: FormBuilder) {
+  constructor(private http: HttpClient, private authservice: AuthService, private route: Router, fb: FormBuilder, private alertifyjs: AlertifyService) {
     this.sampleform = fb.group({
       'Id': 0 // will use the property in html page  
     });
@@ -66,7 +68,7 @@ export class ManageImagesComponent implements OnInit {
         this.menuList = res as string[];
       });
   };
-  selectChange() {
+  selectChange(event: any) {
     this.authservice.getDropDownText(this.TitleId, this.menuList)[0].id;
   }
   onItemChange(value) {
@@ -96,11 +98,12 @@ export class ManageImagesComponent implements OnInit {
   manageImages() {
     this.authservice.manageImages(this.model).subscribe(() => {
     this.getManageImages();
-      alert('Success');
-    },
-      (error) => {
-        alert(error);
-      }
+      this.alertifyjs.success('Successfully uploaded');
+    }, error => {
+      this.alertifyjs.error('Failed to upload');
+    }, () => {
+      this.route.navigate(['\manage']);
+    }
     );
   }
 

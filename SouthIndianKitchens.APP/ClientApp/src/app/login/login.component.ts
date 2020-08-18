@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       }, error => {
         this.alertifyjs.error('Failed to login');
       }, () => {
-        this.route.navigate(['\admin']);
+          this.route.navigate(['\manage']);
       }
       );
     }

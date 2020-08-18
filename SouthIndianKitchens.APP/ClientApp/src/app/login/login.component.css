@@ -48,7 +48,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: white;
+  /*color: white;*/
 }
 .login:hover {
   text-decoration:underline;
@@ -60,8 +60,8 @@ body {
 .alert {
   margin-left: 40% !important;
 }
-.adminlogin{
-    color:white !important;
+.adminlogin {
+  color: #4e4e4e !important;
 }
 .img-alignment {
   width: 120px;

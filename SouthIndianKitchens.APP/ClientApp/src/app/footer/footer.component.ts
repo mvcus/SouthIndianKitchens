@@ -37,8 +37,8 @@ export class FooterComponent implements OnInit {
   sendEmail() {
     if (this.name != null) {
       this.authservice.sendEmail(this.model).subscribe(() => {
-        //this.alertifyjs.message('Successfully subscribed');
-        alert('SUCCESS!!');
+        this.alertifyjs.success('Successfully subscribed');
+        //alert('SUCCESS!!');
       },
         (error) => {
           console.log(error);

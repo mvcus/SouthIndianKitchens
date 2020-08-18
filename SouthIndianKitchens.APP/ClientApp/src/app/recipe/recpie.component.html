@@ -39,14 +39,29 @@
     </div>
   </div>
 
-  <div class="row top-buffer">
+  <!--<div class="row top-buffer">
     <div class="column">
       <div class="card">
         <ul class="img-ul">
           <li *ngFor="let img of (allImages | filterimages:filterBy) ">
             <a>
-              <!--[routerLink]="['/image', img.id]"-->
+              [routerLink]="['/image', img.id]"
               <img id="myImage" src="assets/img/Recpie{{img.url}}" class="img img-card" data-title="View the Recipe" data-toggle="modal" data-target="#gardenImage" data-id="5.jpg" (click)="onClick('assets/img/Recpie'+img.url)" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>-->
+
+  <div class="row top-buffer">
+    <div class="column">
+      <div class="card">
+        <ul class="img-ul">
+          <li  *ngFor="let images of imagearr">
+            <a>
+              <!--[routerLink]="['/image', img.id]"-->
+              <img id="myImage" [src]="images" class="img img-card" data-title="View the Recipe" data-toggle="modal" data-target="#gardenImage" data-id="5.jpg" (click)="onClick('assets/img/Recpie'+img.url)" />
             </a>
           </li>
         </ul>

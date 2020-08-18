@@ -46,7 +46,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: white;
+  /*color: white;*/
 }
 
   .login:hover {
@@ -63,5 +63,5 @@
 }
 
 .register {
-  color: white !important;
+  color: #212529 !important;
 }
